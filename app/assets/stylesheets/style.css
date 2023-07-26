@@ -1,0 +1,183 @@
+/* 共通部分 */
+*{
+  box-sizing: border-box;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+}
+
+.sub-title{
+  text-align: center;
+}
+
+/* サイトヘッダ */
+.site-header{
+  display: flex;
+  justify-content: space-between;
+  background-color: aquamarine;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.site-logo{
+  width: 120px;
+  height: auto;
+}
+
+.header-button{
+  display: flex;
+  justify-content: space-around;
+}
+
+.header-button > a{
+  text-decoration: none;
+  border: 1px solid #0078ff;
+  width: 100px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  margin-left: 20px;
+  background-color: #00ffff;
+  color: #008080;
+}
+
+/* サイトフッタ */
+.site-footer{
+  background-color: lightgray;
+  text-align: center;
+  padding: 20px 0;
+}
+
+/* サイトトップページ */
+.site-description{
+  text-align: center;
+  color: white;
+  font-weight: 600;
+  background-image: url("images/site_top_image.jpg");
+  background-position: center;
+}
+
+.site-description-opacity{
+  padding: 60px 10px;
+  background-color: rgba(0, 0, 0 ,0.3);
+}
+
+.request-index-title{
+  text-align: center;
+  background-color: aquamarine;
+}
+
+.request-search{
+  display: flex;
+  justify-content: center;
+}
+
+.request-search-form{
+  padding: 10px;
+}
+
+.form-upper{
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.search-input{
+  width: 100%;
+  margin-right: 10px;
+  padding: 5px 10px;
+}
+
+.search-button{
+  width: 100px;
+}
+
+.input-number{
+  width: 60px;
+  padding: 5px 10px;
+}
+
+.requests{
+  display: flex;
+  justify-content: center;
+  margin: 60px 0;
+}
+
+.request-list{
+  width: 80vw;
+}
+
+.request-item{
+  border: 1px solid #808080;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 10px;
+  margin-bottom: 20px;
+}
+
+.user-name{
+  font-size: 12px;
+  color: gray;
+}
+
+.request-right{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.reward-price{
+  color: red;
+  font-size: 20px;
+}
+
+/* ユーザ新規登録/ログイン */
+.user-form-container{
+  display: flex;
+  justify-content: center;
+}
+
+.new_user{
+  width: 70vw;
+}
+
+.input-item{
+  margin-bottom: 30px;
+  width: 90%;
+}
+
+.form-label{
+  margin: 10px 5px;
+}
+
+.form-input{
+  margin-bottom: 10px;
+}
+
+.input-user-text{
+  width: 90%;
+  padding: 5px 10px;
+}
+
+.input-user-text-short{
+  width: 100px;
+  padding: 2px 5px;
+}
+
+.select-box{
+  padding: 5px 10px;
+}
+
+.new-user-button{
+  width: 200px;
+  background-color: orange;
+  color: white;
+  font-weight: 600;
+  padding: 10px 20px;
+}
+
+.form-submit{
+  display: flex;
+  justify-content: center;
+}
