@@ -6,8 +6,8 @@ class CreateCommissions < ActiveRecord::Migration[7.0]
       t.date :limit_date, null: false
       t.integer :reward, null: false
       t.boolean :directly, null: false, default: false
-      t.string :contractor
-      t.references :user
+      t.references :contractor
+      t.references :user, null: false, foreign_key: true
       t.timestamps
     end
   end

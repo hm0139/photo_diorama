@@ -17,10 +17,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_26_064944) do
     t.date "limit_date", null: false
     t.integer "reward", null: false
     t.boolean "directly", default: false, null: false
-    t.string "contractor"
-    t.bigint "user_id"
+    t.bigint "contractor_id"
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["contractor_id"], name: "index_commissions_on_contractor_id"
     t.index ["user_id"], name: "index_commissions_on_user_id"
   end
 
@@ -49,4 +50,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_26_064944) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "commissions", "users"
 end
