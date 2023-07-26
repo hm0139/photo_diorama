@@ -1,0 +1,105 @@
+<header class="site-header">
+  <img src="images/photo_diorama-removebg-preview.png" class="site-logo">
+  <div class="header-button">
+    <%= link_to "ログイン", new_user_session_path %>
+    <%= link_to "新規登録", new_user_registration_path %>
+  </div>
+</header>
+<div class="site-description">
+  <div class="site-description-opacity">
+    あなたの思い出を立体として甦らせます。<br>
+    ダミー文字列ダミー文字列ダミー文字列ダミー文字列ダミー文字列ダミー文字列ダミー文字列ダミー文字列<br>
+    ダミー文字列ダミー文字列ダミー文字列ダミー文字列ダミー文字列ダミー文字列<br>
+    ダミー文字列ダミー文字列ダミー文字列ダミー文字列ダミー文字列ダミー文字列ダミー文字列ダミー文字列ダミー文字列ダミー文字列<br>
+    ダミー文字列ダミー文字列ダミー文字列ダミー文字列<br>
+  </div>
+</div>
+<div class="request-container">
+  <div class="request-index-title">
+    <h2>依頼一覧</h2>
+  </div>
+  <div class="request-search">
+    <form action="#" class="request-search-form">
+      <div class="form-upper">
+        <input type="text" placeholder="ここにキーワードを入力" name="search-keyword" class="search-input">
+        <input type="submit" value="検索" class="search-button">
+      </div>
+      <div class="form-lower">
+        <label>報酬で絞り込み
+          <input type="text" name="reward-lower" class="input-number">
+          〜
+          <input type="text" name="reward-upper" class="input-number">
+        </label>
+        <label>応募日数
+          <input type="text" name="limit-date" class="input-number">
+        </label>
+      </div>
+    </form>
+  </div>
+  <div class="requests">
+    <div class="request-list">
+
+      <div class="request-item">
+        <div class="request-item-left">
+          <div class="request-item-upper">
+            <div class="request-title">
+              ○○の時の写真をお願いします。
+            </div>
+          </div>
+          <div class="request-item-lower">
+            <div class="user-name">
+              test-user
+            </div>
+          </div>
+        </div>
+        <div class="request-right">
+          <div class="reqard">
+            <span class="reward-item-name">報酬</span> : <span class="reward-price">2,000円</span>
+          </div>
+        </div>
+      </div>
+      <div class="request-item">
+        <div class="request-item-left">
+          <div class="request-item-upper">
+            <div class="request-title">
+              ○○の時の写真をお願いします。
+            </div>
+          </div>
+          <div class="request-item-lower">
+            <div class="user-name">
+              test-user
+            </div>
+          </div>
+        </div>
+        <div class="request-right">
+          <div class="reqard">
+            <span class="reward-item-name">報酬</span> : <span class="reward-price">2,000円</span>
+          </div>
+        </div>
+      </div>
+      <div class="request-item">
+        <div class="request-item-left">
+          <div class="request-item-upper">
+            <div class="request-title">
+              ○○の時の写真をお願いします。
+            </div>
+          </div>
+          <div class="request-item-lower">
+            <div class="user-name">
+              test-user
+            </div>
+          </div>
+        </div>
+        <div class="request-right">
+          <div class="reward">
+            <span class="reward-item-name">報酬</span> : <span class="reward-price">2,000円</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<footer class="site-footer">
+  Photo Diorama - 2023
+</footer>
