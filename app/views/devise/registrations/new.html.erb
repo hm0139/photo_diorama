@@ -44,7 +44,7 @@
 
   <div class="Input-item">
     <%= f.label :prefectures, "都道府県" %><br>
-    <%= f.collection_select(:prefecture, Prefecture.all, :id, :name, {}, {class:"select-box", id:"prefecture"}) %>
+    <%= f.collection_select(:prefectures, Prefecture.all, :id, :name, {}, {class:"select-box", id:"prefecture"}) %>
   </div>
 
   <div class="actions">
