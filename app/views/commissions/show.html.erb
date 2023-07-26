@@ -1,0 +1,22 @@
+<h2 class="sub-title">依頼詳細</h2>
+
+<div class="commission-container">
+  <div class="commission-title">
+    <h3><%= @commission.title %></h3>
+  </div>
+  <div class="commission-user">
+    <%= @commission.user.user_name %>
+  </div>
+  <div class="commission-description">
+    <%= @commission.description %>
+  </div>
+  <div class="commission-reward">
+    報酬 : <%= @commission.reward %>円
+  </div>
+  <div class="limit-date">
+    期限日 : <%= @commission.limit_date %>
+  </div>
+  <div class="commission-reception">
+    <input type="button" value="この依頼を受け付ける">
+  </div>
+</div>

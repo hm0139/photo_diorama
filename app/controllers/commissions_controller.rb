@@ -14,6 +14,10 @@ class CommissionsController < ApplicationController
     end
   end
 
+  def show
+    @commission = Commission.find(params[:id])
+  end
+
   private
   def commission_param
     params.require(:commission).permit(:title, :description, :limit_date, :reward, :directly, :contractor).merge(user_id: current_user.id)
