@@ -11,6 +11,16 @@
   </head>
 
   <body>
+    <header class="site-header">
+      <%= link_to image_tag("site-logo_kari.png", class: "site-logo"), root_path %>
+      <div class="header-button">
+        <%= link_to "ログイン", new_user_session_path %>
+        <%= link_to "新規登録", new_user_registration_path %>
+      </div>
+    </header>
     <%= yield %>
+    <footer class="site-footer">
+      Photo Diorama - 2023
+    </footer>
   </body>
 </html>
