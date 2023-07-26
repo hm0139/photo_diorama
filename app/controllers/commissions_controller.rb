@@ -1,5 +1,6 @@
 class CommissionsController < ApplicationController
   def index
+    @commissions = Commission.all
   end
 
   def new
