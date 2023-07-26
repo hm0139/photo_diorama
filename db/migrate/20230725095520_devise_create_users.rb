@@ -18,7 +18,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
       t.string :financial_institution
       t.string :branch
       t.string :deposit
-      t.string :account_namber
+      t.string :account_number
       t.string :account_holder
       t.string :rank, null: false, default: "D"
       

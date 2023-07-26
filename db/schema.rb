@@ -24,7 +24,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_25_095520) do
     t.string "financial_institution"
     t.string "branch"
     t.string "deposit"
-    t.string "account_namber"
+    t.string "account_number"
     t.string "account_holder"
     t.string "rank", default: "D", null: false
     t.string "reset_password_token"
