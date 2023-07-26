@@ -6,12 +6,12 @@
 
     <div class="input-item">
       <%= f.label :user_name, "ユーザ名" %><br />
-      <%= f.text_field :user_name, autofocus: true, autocomplete: "user_name" %>
+      <%= f.text_field :user_name, autofocus: true, autocomplete: "user_name", class: "input-user-text" %>
     </div>
 
     <div class="input-item">
       <%= f.label :email, "Eメール" %><br />
-      <%= f.email_field :email, autocomplete: "email" %>
+      <%= f.email_field :email, autocomplete: "email", class: "input-user-text" %>
     </div>
 
     <div class="input-item">
@@ -19,28 +19,28 @@
       <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %>文字以上)</em>
       <% end %><br />
-      <%= f.password_field :password, autocomplete: "new-password" %>
+      <%= f.password_field :password, autocomplete: "new-password", class: "input-user-text" %>
     </div>
 
     <div class="input-item">
       <%= f.label :password_confirmation, "パスワード（確認）" %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input-user-text" %>
     </div>
 
     <div class="input-item">
       <%= f.label :name, "氏名" %><br />
-      <%= f.text_field :name, autocomplete: "name" %>
+      <%= f.text_field :name, autocomplete: "name", class: "input-user-text" %>
     </div>
 
     <div class="input-item">
       <%= f.label :reading_name, "氏名（よみがな）" %><br />
-      <%= f.text_field :reading_name, autocomplete: "reading_name" %>
+      <%= f.text_field :reading_name, autocomplete: "reading_name", class: "input-user-text" %>
     </div>
 
     住所
     <div class="input-item">
       <%= f.label :postal_code, "郵便番号" %><br>
-      <%= f.text_field :postal_code, autocomplete: "postal_code" %>
+      <%= f.text_field :postal_code, autocomplete: "postal_code", class: "input-user-text" %>
     </div>
 
     <div class="Input-item">
@@ -50,38 +50,38 @@
 
     <div class="input-item">
       <%= f.label :city, "市区町村" %><br>
-      <%= f.text_field :city, autocomplete: "city" %>
+      <%= f.text_field :city, autocomplete: "city", class: "input-user-text" %>
     </div>
 
     <div class="input-item">
       <%= f.label :building_name, "マンション・ビル名" %><br>
-      <%= f.text_field :building_name, autocomplete: "buiding_name" %>
+      <%= f.text_field :building_name, autocomplete: "buiding_name", class: "input-user-text" %>
     </div>
 
     口座情報
     <div class="input-item">
       <%= f.label :financial_institution, "金融機関名" %><br>
-      <%= f.text_field :financial_institution, autocomplete: "financial_institution" %>
+      <%= f.text_field :financial_institution, autocomplete: "financial_institution", class: "input-user-text" %>
     </div>
 
     <div class="input-item">
       <%= f.label :branch, "支店名" %><br>
-      <%= f.text_field :branch, autocomplete: "branch" %>
+      <%= f.text_field :branch, autocomplete: "branch", class: "input-user-text" %>
     </div>
 
     <div class="input-item">
       <%= f.label :deposit, "預金種目" %><br>
-      <%= f.text_field :deposit, autocomplete: "deposit" %>
+      <%= f.text_field :deposit, autocomplete: "deposit", class: "input-user-text" %>
     </div>
 
     <div class="input-item">
       <%= f.label :account_number, "口座番号" %><br>
-      <%= f.text_field :account_number, autocomplete: "account_number" %>
+      <%= f.text_field :account_number, autocomplete: "account_number", class: "input-user-text" %>
     </div>
 
     <div class="input-item">
       <%= f.label :account_holder, "口座名義" %><br>
-      <%= f.text_field :account_holder, autocomplete: "account_holder" %>
+      <%= f.text_field :account_holder, autocomplete: "account_holder", class: "input-user-text" %>
     </div>
 
     <div class="actions">
