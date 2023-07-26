@@ -1,0 +1,29 @@
+<h2 class="sub-title">依頼の作成</h2>
+
+<div class="commissions-input-form">
+  <%= form_with model: @commissions ,local: true, class: "create-commission-form" do |f| %>
+    <div class="input-item">
+      <%= f.label :title, "依頼タイトル" %><br>
+      <%= f.text_field :title, autofocus: true, class: "input-user-text" %>
+    </div>
+    <div class="input-item">
+      <%= f.label :description, "説明文" %><br>
+      <%= f.text_area :description %>
+    </div>
+    <div class="input-item">
+      <%= f.label :limit_date, "期限日" %>
+      <%= f.date_field :limit_date %>
+    </div>
+    <div class="input-item">
+      <%= f.label :reward, "報酬（日本円）" %>
+      <%= f.text_field :reward %>
+    </div>
+    <div class="input-item">
+      <%= f.radio_button :directly, :false %>
+      <%= f.label :directly, "公開", {value: :false, style: "display: inline-block;"} %>
+      <%= f.radio_button :directly, :true %>
+      <%= f.label :directly, "直接依頼", {value: true, style: "display: inline-block;"} %>
+    </div>
+    <%= f.submit "作成" %>
+  <% end %>
+</div>
