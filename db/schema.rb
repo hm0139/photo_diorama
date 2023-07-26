@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_25_095520) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_26_064944) do
+  create_table "commissions", charset: "utf8mb4", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "description", null: false
+    t.date "limit_date", null: false
+    t.integer "reward", null: false
+    t.boolean "directly", default: false, null: false
+    t.string "contractor"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_commissions_on_user_id"
+  end
+
   create_table "users", charset: "utf8mb4", force: :cascade do |t|
     t.string "user_name", null: false
     t.string "email", default: "", null: false
