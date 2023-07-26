@@ -2,6 +2,7 @@
 
 <div class="commissions-input-form">
   <%= form_with model: @commission ,local: true, class: "create-commission-form" do |f| %>
+    <%= render 'shared/error_messages', model: f.object %>
     <div class="input-item">
       <%= f.label :title, "依頼タイトル" %><br>
       <%= f.text_field :title, autofocus: true, class: "input-user-text" %>
