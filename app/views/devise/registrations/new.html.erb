@@ -47,8 +47,44 @@
     <%= f.collection_select(:prefectures, Prefecture.all, :id, :name, {}, {class:"select-box", id:"prefecture"}) %>
   </div>
 
+  <div class="input-item">
+    <%= f.label :city, "市区町村" %><br>
+    <%= f.text_field :city, autocomplete: "city" %>
+  </div>
+
+  <div class="input-item">
+    <%= f.label :building_name, "マンション・ビル名" %><br>
+    <%= f.text_field :building_name, autocomplete: "buiding_name" %>
+  </div>
+
+  口座情報
+  <div class="input-item">
+    <%= f.label :financial_institution, "金融機関名" %><br>
+    <%= f.text_field :financial_institution, autocomplete: "financial_institution" %>
+  </div>
+
+  <div class="input-item">
+    <%= f.label :branch, "支店名" %><br>
+    <%= f.text_field :branch, autocomplete: "branch" %>
+  </div>
+
+  <div class="input-item">
+    <%= f.label :deposit, "預金種目" %><br>
+    <%= f.text_field :deposit, autocomplete: "deposit" %>
+  </div>
+
+  <div class="input-item">
+    <%= f.label :account_number, "口座番号" %><br>
+    <%= f.text_field :account_number, autocomplete: "account_number" %>
+  </div>
+
+  <div class="input-item">
+    <%= f.label :account_holder, "口座名義" %><br>
+    <%= f.text_field :account_holder, autocomplete: "account_holder" %>
+  </div>
+
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "新規登録" %>
   </div>
 <% end %>
 
