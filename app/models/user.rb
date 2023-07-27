@@ -20,4 +20,6 @@ class User < ApplicationRecord
   validates :deposit, numericality: true
   validates :account_number, format: {with: /\A\d{4,7}\z|\A\z/ , message: "は正しく入力してください"}
   validates :account_holder, format: {with: /\A[ァ-ヴー]+\z|\A\z/, message: "は全角カタカナで記入してください"}
+
+  enum kinds: {requester: 0, creator: 1}
 end

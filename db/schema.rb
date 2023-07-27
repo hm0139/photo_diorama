@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_27_055406) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_27_141419) do
   create_table "commissions", charset: "utf8mb4", force: :cascade do |t|
     t.string "title", null: false
     t.text "description", null: false
@@ -55,8 +55,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_27_055406) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.integer "kinds", default: 0, null: false
   end
 
   add_foreign_key "commissions", "users"
