@@ -1,9 +1,10 @@
 <h2 class="sub-title">製作者一覧</h2>
 
-<div class="creators_list">
+<div class="creators-list">
   <% @creators.each do |creator| %>
-    <div class="create_item">
-      <%= creator.user_name %>
+    <div class="create-item">
+      <div class="create-name"><%= creator.user_name %></div>
+      <div class="commission-select"><%= link_to "このユーザに依頼する", direct_commission_path(@commission, user_id: creator.id), data: {turbo_method: :patch} %></div>
     </div>
   <% end %>
 </div>

@@ -24,6 +24,14 @@ class CommissionsController < ApplicationController
     @commission = Commission.find(params[:id])
   end
 
+  def direct
+    commission = Commission.find(params[:id])
+    creator = User.find(params[:user_id])
+    commission.contractor_id = creator.id
+    commission.save
+    redirect_to root_path
+  end
+
   private
   def commission_param
     params.require(:commission).permit(:title, :description, :limit_date, :reward, :directly, :contractor).merge(user_id: current_user.id)
