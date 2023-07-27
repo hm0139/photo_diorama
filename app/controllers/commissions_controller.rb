@@ -1,6 +1,7 @@
 class CommissionsController < ApplicationController
   def index
     @commissions = Commission.all
+    @notification = Notification.find_by(user_id: current_user.id) if user_signed_in?
   end
 
   def new
@@ -29,6 +30,7 @@ class CommissionsController < ApplicationController
     creator = User.find(params[:user_id])
     commission.contractor_id = creator.id
     commission.save
+    Notification.create(user_id: creator.id, commission_id: commission.id)
     redirect_to root_path
   end
 
