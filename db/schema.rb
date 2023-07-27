@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_26_064944) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_27_055406) do
   create_table "commissions", charset: "utf8mb4", force: :cascade do |t|
     t.string "title", null: false
     t.text "description", null: false
@@ -23,6 +23,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_26_064944) do
     t.datetime "updated_at", null: false
     t.index ["contractor_id"], name: "index_commissions_on_contractor_id"
     t.index ["user_id"], name: "index_commissions_on_user_id"
+  end
+
+  create_table "notifications", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "commission_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["commission_id"], name: "index_notifications_on_commission_id"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
   create_table "users", charset: "utf8mb4", force: :cascade do |t|
@@ -51,4 +60,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_26_064944) do
   end
 
   add_foreign_key "commissions", "users"
+  add_foreign_key "notifications", "commissions"
+  add_foreign_key "notifications", "users"
 end
