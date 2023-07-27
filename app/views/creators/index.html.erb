@@ -1,12 +1,7 @@
 <h2 class="sub-title">製作者一覧</h2>
 
-<div class="creators-list">
-  <% @creators.each do |creator| %>
-   <% if current_user.id != creator.id %>
-      <div class="create-item">
-        <div class="create-name"><%= creator.user_name %></div>
-        <div class="commission-select"><%= link_to "このユーザに依頼する", direct_commission_path(@commission, user_id: creator.id), data: {turbo_method: :patch} %></div>
-      </div>
-    <% end %>
-  <% end %>
+<div class="creators-list-container">
+  <div class="creators-list">
+    <%= render partial: "creator", collection: @creators %>
+  </div>
 </div>

@@ -20,6 +20,7 @@ body{
 
 .button-orange{
   padding: 5px 20px;
+  text-decoration: none;
   background-color: orange;
   color: white;
 }
@@ -280,4 +281,25 @@ body{
 .refuse{
   background-color: lightgray;
   color: white;
+}
+
+/* 製作者一覧 */
+
+.creators-list-container{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.creators-list{
+  width: 80vw;
+  padding-left: 20px;
+}
+
+.create-item{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  border: 1px solid #808080;
 }
