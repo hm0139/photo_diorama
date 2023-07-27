@@ -12,6 +12,12 @@ body{
   text-align: center;
 }
 
+.note{
+  color: red;
+  font-style: oblique;
+  font-size: 12px;
+}
+
 /* サイトヘッダ */
 .site-header{
   display: flex;

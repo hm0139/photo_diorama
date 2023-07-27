@@ -4,20 +4,22 @@
   <%= form_with model: @commission ,local: true, class: "create-commission-form" do |f| %>
     <%= render 'shared/error_messages', model: f.object %>
     <div class="input-item">
-      <%= f.label :title, "依頼タイトル" %><br>
+      <%= f.label :title, "依頼タイトル" %><span class="note">(必須)</span><br>
       <%= f.text_field :title, autofocus: true, class: "input-user-text" %>
     </div>
     <div class="input-item">
-      <%= f.label :description, "説明文" %><br>
+      <%= f.label :description, "説明文" %><span class="note">(必須)</span><br>
       <%= f.text_area :description %>
     </div>
     <div class="input-item">
       <%= f.label :limit_date, "期限日" %>
-      <%= f.date_field :limit_date %>
+      <%= f.date_field :limit_date %><span class="note">(必須)</span>
+      <div class="note">期限は今日より一週間以上先を指定してください</div>
     </div>
     <div class="input-item">
       <%= f.label :reward, "報酬（日本円）" %>
-      <%= f.text_field :reward %>
+      <%= f.text_field :reward %><span class="note">(必須)</span>
+      <div class="note">5,000円〜1,000,000円</div>
     </div>
     <div class="input-item">
       <%= f.radio_button :directly, :false %>

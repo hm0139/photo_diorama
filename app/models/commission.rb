@@ -5,7 +5,7 @@ class Commission < ApplicationRecord
     validates :title
     validates :description
     validates :limit_date
-    validates :reward, numericality: { in: 5000..200000 }
+    validates :reward, numericality: { in: 5000..1000000 }
   end
   validates :directly, inclusion: [true, false]
   validate :date_before_start
@@ -13,6 +13,6 @@ class Commission < ApplicationRecord
   private
   def date_before_start
     return if limit_date.blank?
-    errors.add(:start_day, "は一週間以上先のものを選択してください") if limit_date < Date.today + 7
+    errors.add(:limit_date, "は一週間以上先のものを選択してください") if limit_date < Date.today + 7
   end
 end
