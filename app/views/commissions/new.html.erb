@@ -9,7 +9,7 @@
     </div>
     <div class="input-item">
       <%= f.label :description, "説明文" %><span class="note">(必須)</span><br>
-      <%= f.text_area :description %>
+      <%= f.text_area :description, class: "input-text" %>
     </div>
     <div class="input-item">
       <%= f.label :limit_date, "期限日" %>
@@ -27,6 +27,6 @@
       <%= f.radio_button :directly, :true %>
       <%= f.label :directly, "直接依頼", {value: true, style: "display: inline-block;"} %>
     </div>
-    <%= f.submit "作成" %>
+    <%= f.submit "作成", class: "button-orange" %>
   <% end %>
 </div>
