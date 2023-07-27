@@ -5,5 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :commissions
-  has_one :notification
+  has_many :notifications
 end
