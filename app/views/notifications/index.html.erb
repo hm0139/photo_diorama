@@ -1,0 +1,7 @@
+<h2 class="sub-title">あなたに届いている依頼</h2>
+
+<div class="requests">
+  <div class="request-list">
+    <%= render partial: "commissions/commissions_item", collection: @commissions, as: "commission" %>
+  </div>
+</div>

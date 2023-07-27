@@ -31,65 +31,7 @@
   </div>
   <div class="requests">
     <div class="request-list">
-
-      <div class="request-item">
-        <div class="request-item-left">
-          <div class="request-item-upper">
-            <div class="request-title">
-              ○○の時の写真をお願いします。
-            </div>
-          </div>
-          <div class="request-item-lower">
-            <div class="user-name">
-              test-user
-            </div>
-          </div>
-        </div>
-        <div class="request-right">
-          <div class="reqard">
-            <span class="reward-item-name">報酬</span> : <span class="reward-price">2,000円</span>
-          </div>
-        </div>
-      </div>
-      <div class="request-item">
-        <div class="request-item-left">
-          <div class="request-item-upper">
-            <div class="request-title">
-              ○○の時の写真をお願いします。
-            </div>
-          </div>
-          <div class="request-item-lower">
-            <div class="user-name">
-              test-user
-            </div>
-          </div>
-        </div>
-        <div class="request-right">
-          <div class="reqard">
-            <span class="reward-item-name">報酬</span> : <span class="reward-price">2,000円</span>
-          </div>
-        </div>
-      </div>
-      <div class="request-item">
-        <div class="request-item-left">
-          <div class="request-item-upper">
-            <div class="request-title">
-              ○○の時の写真をお願いします。
-            </div>
-          </div>
-          <div class="request-item-lower">
-            <div class="user-name">
-              test-user
-            </div>
-          </div>
-        </div>
-        <div class="request-right">
-          <div class="reward">
-            <span class="reward-item-name">報酬</span> : <span class="reward-price">2,000円</span>
-          </div>
-        </div>
-      </div>
-
+      <%= render partial: "commissions_item", collection: @commissions, as: "commission" %>
     </div>
   </div>
 </div>

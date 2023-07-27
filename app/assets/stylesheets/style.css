@@ -12,6 +12,19 @@ body{
   text-align: center;
 }
 
+.note{
+  color: red;
+  font-style: oblique;
+  font-size: 12px;
+}
+
+.button-orange{
+  padding: 5px 20px;
+  text-decoration: none;
+  background-color: orange;
+  color: white;
+}
+
 /* サイトヘッダ */
 .site-header{
   display: flex;
@@ -26,12 +39,12 @@ body{
   height: auto;
 }
 
-.header-button{
+.header-right{
   display: flex;
   justify-content: space-around;
 }
 
-.header-button > a{
+.header-button{
   text-decoration: none;
   border: 1px solid #0078ff;
   width: 100px;
@@ -41,6 +54,15 @@ body{
   margin-left: 20px;
   background-color: #00ffff;
   color: #008080;
+}
+
+.notification{
+  text-decoration: none;
+  background-color: orange;
+  margin: 2px 10px;
+  padding: 5px;
+  font-size: 12px;
+  color: white;
 }
 
 /* サイトフッタ */
@@ -180,4 +202,104 @@ body{
 .form-submit{
   display: flex;
   justify-content: center;
+}
+
+/* 依頼作成 */
+.commissions-input-form{
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  margin-bottom: 30px;
+}
+
+.create-commission-form{
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-text{
+  width: 90%;
+  height: 150px;
+}
+
+/* 依頼詳細画面 */
+.commission-container{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.commission-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.commission-content{
+  width: 80vw;
+  border: 1px solid #808080;
+  padding: 10px 20px;
+}
+
+.commission-description{
+  margin: 10px 0 20px 0;
+}
+
+.commission-reward,.limit-date{
+  margin: 10px 0;
+}
+
+.information-item{
+  font-size: 12px;
+  color: gray;
+}
+
+.important{
+  font-size: 18px;
+  color: red;
+}
+
+.commission-reception{
+  display: flex;
+  justify-content: center;
+}
+
+.commission-reception > a{
+  text-decoration: none;
+  border: 1px solid #808080;
+  padding: 5px 10px
+}
+
+.agreement{
+  background-color: orange;
+  color: white;
+  margin-right: 20px;
+}
+
+.refuse{
+  background-color: lightgray;
+  color: white;
+}
+
+/* 製作者一覧 */
+
+.creators-list-container{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.creators-list{
+  width: 80vw;
+  padding-left: 20px;
+}
+
+.create-item{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  border: 1px solid #808080;
 }

@@ -10,7 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_25_095520) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_27_055406) do
+  create_table "commissions", charset: "utf8mb4", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "description", null: false
+    t.date "limit_date", null: false
+    t.integer "reward", null: false
+    t.boolean "directly", default: false, null: false
+    t.bigint "contractor_id"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["contractor_id"], name: "index_commissions_on_contractor_id"
+    t.index ["user_id"], name: "index_commissions_on_user_id"
+  end
+
+  create_table "notifications", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "commission_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["commission_id"], name: "index_notifications_on_commission_id"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
+  end
+
   create_table "users", charset: "utf8mb4", force: :cascade do |t|
     t.string "user_name", null: false
     t.string "email", default: "", null: false
@@ -36,4 +59,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_25_095520) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "commissions", "users"
+  add_foreign_key "notifications", "commissions"
+  add_foreign_key "notifications", "users"
 end
