@@ -1,4 +1,6 @@
 class CommissionsController < ApplicationController
+  before_action :direct_commission, only: [:show]
+
   def index
     @commissions = Commission.where(directly: false)
   end
@@ -21,7 +23,6 @@ class CommissionsController < ApplicationController
   end
 
   def show
-    @commission = Commission.find(params[:id])
   end
 
   def direct
@@ -36,5 +37,12 @@ class CommissionsController < ApplicationController
   private
   def commission_param
     params.require(:commission).permit(:title, :description, :limit_date, :reward, :directly, :contractor).merge(user_id: current_user.id)
+  end
+
+  def direct_commission
+    @commission = Commission.find(params[:id])
+    if @commission.directly && (!user_signed_in? || @commission.contractor_id != current_user.id)
+      redirect_to root_path
+    end
   end
 end
