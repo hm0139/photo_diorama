@@ -19,11 +19,13 @@
     <div class="limit-date">
       <span class="information-item">期限日 : </span><span class="important"><%= @commission.limit_date %></span>
     </div>
-    <div class="commission-reception">
-      <%= link_to "この依頼を受け付ける", root_path, class: "agreement" %>
-      <% if @commission.directly %>
-        <%= link_to "断る", root_path, class: "refuse" %>
-      <% end %>
-    </div>
+    <% if user_signed_in? %>
+      <div class="commission-reception">
+        <%= link_to "この依頼を受け付ける", root_path, class: "agreement" %>
+        <% if @commission.directly %>
+          <%= link_to "断る", root_path, class: "refuse" %>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </div>
