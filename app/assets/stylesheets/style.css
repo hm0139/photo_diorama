@@ -158,6 +158,7 @@ body{
 .user-form-container{
   display: flex;
   justify-content: center;
+  margin-bottom: 30px;
 }
 
 .new_user{
@@ -200,6 +201,11 @@ body{
 }
 
 .form-submit{
+  display: flex;
+  justify-content: center;
+}
+
+.actions{
   display: flex;
   justify-content: center;
 }
