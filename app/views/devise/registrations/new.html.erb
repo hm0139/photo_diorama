@@ -4,13 +4,14 @@
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
+    <h3>ユーザ情報</h3>
     <div class="input-item">
-      <%= f.label :user_name, "ユーザ名" %><br />
+      <%= f.label :user_name, "ユーザ名" %><span class="note">(必須)</span><br />
       <%= f.text_field :user_name, autofocus: true, autocomplete: "user_name", class: "input-user-text" %>
     </div>
 
     <div class="input-item">
-      <%= f.label :email, "Eメール" %><br />
+      <%= f.label :email, "Eメール" %><span class="note">(必須)</span><br />
       <%= f.email_field :email, autocomplete: "email", class: "input-user-text" %>
     </div>
 
@@ -18,38 +19,39 @@
       <%= f.label :password, "パスワード" %>
       <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %>文字以上)</em>
-      <% end %><br />
+      <% end %><span class="note">(必須)</span><br />
       <%= f.password_field :password, autocomplete: "new-password", class: "input-user-text" %>
     </div>
 
     <div class="input-item">
-      <%= f.label :password_confirmation, "パスワード（確認）" %><br />
+      <%= f.label :password_confirmation, "パスワード（確認）" %><span class="note">(必須)</span><br />
       <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input-user-text" %>
     </div>
 
     <div class="input-item">
-      <%= f.label :name, "氏名" %><br />
+      <%= f.label :name, "氏名" %><span class="note">(必須)</span><br />
       <%= f.text_field :name, autocomplete: "name", class: "input-user-text" %>
     </div>
 
     <div class="input-item">
-      <%= f.label :reading_name, "氏名（よみがな）" %><br />
+      <%= f.label :reading_name, "氏名（ヨミガナ）" %><span class="note">(必須)</span><br />
       <%= f.text_field :reading_name, autocomplete: "reading_name", class: "input-user-text" %>
     </div>
 
-    住所
+    <h3>住所</h3>
     <div class="input-item">
-      <%= f.label :postal_code, "郵便番号" %><br>
+      <%= f.label :postal_code, "郵便番号" %><span class="note">(必須)</span><br>
       <%= f.text_field :postal_code, autocomplete: "postal_code", class: "input-user-text" %>
+      <div class="note">郵便番号は123-4567の形式で入力してください</div>
     </div>
 
-    <div class="Input-item">
-      <%= f.label :prefectures, "都道府県" %><br>
+    <div class="input-item">
+      <%= f.label :prefectures, "都道府県" %><span class="note">(必須)</span><br>
       <%= f.collection_select(:prefectures, Prefecture.all, :id, :name, {}, {class:"select-box", id:"prefecture"}) %>
     </div>
 
     <div class="input-item">
-      <%= f.label :city, "市区町村" %><br>
+      <%= f.label :city, "市区町村" %><span class="note">(必須)</span><br>
       <%= f.text_field :city, autocomplete: "city", class: "input-user-text" %>
     </div>
 
@@ -58,7 +60,8 @@
       <%= f.text_field :building_name, autocomplete: "buiding_name", class: "input-user-text" %>
     </div>
 
-    口座情報
+    <h3>口座情報</h3>
+    <div class="note">以下は依頼を受ける予定の方のみ必須です</div>
     <div class="input-item">
       <%= f.label :financial_institution, "金融機関名" %><br>
       <%= f.text_field :financial_institution, autocomplete: "financial_institution", class: "input-user-text" %>
@@ -71,7 +74,7 @@
 
     <div class="input-item">
       <%= f.label :deposit, "預金種目" %><br>
-      <%= f.text_field :deposit, autocomplete: "deposit", class: "input-user-text" %>
+      <%= f.select(:deposit, {"---" => 0, "普通" => 1, "定期" => 2, "当座" => 3}, {}, {class:"select-box"}) %>
     </div>
 
     <div class="input-item">
@@ -85,7 +88,7 @@
     </div>
 
     <div class="actions">
-      <%= f.submit "新規登録" %>
+      <%= f.submit "新規登録", class: "button-orange" %>
     </div>
   <% end %>
   <div class="user-links">
