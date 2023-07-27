@@ -1,7 +1,6 @@
 class CommissionsController < ApplicationController
   def index
-    @commissions = Commission.all
-    @notification = Notification.find_by(user_id: current_user.id) if user_signed_in?
+    @commissions = Commission.where(directly: false)
   end
 
   def new

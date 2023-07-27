@@ -6,6 +6,8 @@ Rails.application.routes.draw do
       patch "direct"
     end
   end
+
+  resources :notifications, only:[:index]
   
   resources :creators, only:[:index]
 end

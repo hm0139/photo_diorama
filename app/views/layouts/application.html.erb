@@ -15,8 +15,8 @@
       <%= link_to image_tag("site-logo_kari.png", class: "site-logo"), root_path %>
       <div class="header-right">
         <% if user_signed_in? %>
-          <% if @notification %>
-            <%= link_to "依頼が届いています！", commission_path(@notification.commission_id), class: "notification" %>
+          <% if @notification_count > 0 %>
+            <%= link_to "依頼が届いています！", notifications_path, class: "notification" %>
           <% end %>
           <div class="header-user-name"><%= current_user.user_name %></div>
           <%= link_to "依頼する", new_commission_path, class: "header-button" %>
