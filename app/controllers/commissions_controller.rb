@@ -10,7 +10,11 @@ class CommissionsController < ApplicationController
   def create
     @commission = Commission.new(commission_param)
     if @commission.save
-      redirect_to root_path
+      if @commission.directly
+        redirect_to controller: :creators, action: :index, params: {"id" => @commission.id}
+      else
+        redirect_to root_path
+      end
     else
       render :new, status: :unprocessable_entity
     end

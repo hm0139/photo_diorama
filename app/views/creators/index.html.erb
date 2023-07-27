@@ -1,0 +1,9 @@
+<h2 class="sub-title">製作者一覧</h2>
+
+<div class="creators_list">
+  <% @creators.each do |creator| %>
+    <div class="create_item">
+      <%= creator.user_name %>
+    </div>
+  <% end %>
+</div>
