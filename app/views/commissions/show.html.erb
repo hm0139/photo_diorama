@@ -1,22 +1,29 @@
 <h2 class="sub-title">依頼詳細</h2>
 
 <div class="commission-container">
-  <div class="commission-title">
-    <h3><%= @commission.title %></h3>
-  </div>
-  <div class="commission-user">
-    <%= @commission.user.user_name %>
-  </div>
-  <div class="commission-description">
-    <%= @commission.description %>
-  </div>
-  <div class="commission-reward">
-    報酬 : <%= @commission.reward %>円
-  </div>
-  <div class="limit-date">
-    期限日 : <%= @commission.limit_date %>
-  </div>
-  <div class="commission-reception">
-    <input type="button" value="この依頼を受け付ける">
+  <div class="commission-content">
+    <div class="commission-header">
+      <div class="commission-title">
+        <h3><%= @commission.title %></h3>
+      </div>
+      <div class="user-name">
+        <%= @commission.user.user_name %>
+      </div>
+    </div>
+    <div class="commission-description">
+      <%= @commission.description %>
+    </div>
+    <div class="commission-reward">
+      <span class="information-item">報酬 : </span><span class="important"><%= @commission.reward %>円</span>
+    </div>
+    <div class="limit-date">
+      <span class="information-item">期限日 : </span><span class="important"><%= @commission.limit_date %></span>
+    </div>
+    <div class="commission-reception">
+      <%= link_to "この依頼を受け付ける", root_path, class: "agreement" %>
+      <% if @commission.directly %>
+        <%= link_to "断る", root_path, class: "refuse" %>
+      <% end %>
+    </div>
   </div>
 </div>

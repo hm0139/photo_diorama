@@ -222,3 +222,62 @@ body{
   width: 90%;
   height: 150px;
 }
+
+/* 依頼詳細画面 */
+.commission-container{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.commission-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.commission-content{
+  width: 80vw;
+  border: 1px solid #808080;
+  padding: 10px 20px;
+}
+
+.commission-description{
+  margin: 10px 0 20px 0;
+}
+
+.commission-reward,.limit-date{
+  margin: 10px 0;
+}
+
+.information-item{
+  font-size: 12px;
+  color: gray;
+}
+
+.important{
+  font-size: 18px;
+  color: red;
+}
+
+.commission-reception{
+  display: flex;
+  justify-content: center;
+}
+
+.commission-reception > a{
+  text-decoration: none;
+  border: 1px solid #808080;
+  padding: 5px 10px
+}
+
+.agreement{
+  background-color: orange;
+  color: white;
+  margin-right: 20px;
+}
+
+.refuse{
+  background-color: lightgray;
+  color: white;
+}
