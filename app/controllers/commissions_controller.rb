@@ -2,7 +2,7 @@ class CommissionsController < ApplicationController
   before_action :direct_commission, only: [:show]
 
   def index
-    @commissions = Commission.where(directly: false)
+    @commissions = Commission.where(directly: false).where(status: Commission.statuses[:undealt])
   end
 
   def new
