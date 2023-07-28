@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-3.times do |n|
+20.times do |n|
   User.create!(
     user_name: "test#{n + 1}",
     email: "test#{n + 1}@gmail.com",
@@ -18,7 +18,7 @@
     prefectures: "13",
     city: "渋谷区",
     building_name: "シブヤマンション",
-    kind: n == 0 ? "1" : "0",
+    kind: n % 2 == 0 ? "1" : "0",
     financial_institution: "澤村銀行",
     branch: "渋谷支店",
     deposit: "1",
@@ -27,8 +27,8 @@
   )
 end
 
-User.all.each_with_index do |user,index|
-  next if index == 0
+User.all.each do |user|
+  next if user.kind == 1
   user.commissions.create!(
     title: "依頼",
     description: "依頼説明文",
