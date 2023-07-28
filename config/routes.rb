@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     member do
       patch "direct"
     end
-    resources :dealings, only:[:new, :create]
+    resources :dealings, only:[:new, :create, :show]
   end
 
   resources :notifications, only:[:index]
