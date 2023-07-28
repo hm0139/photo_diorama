@@ -5,3 +5,35 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+3.times do |n|
+  User.create!(
+    user_name: "test#{n + 1}",
+    email: "test#{n + 1}@gmail.com",
+    password: "testuser#{n + 1}",
+    password_confirmation: "testuser#{n + 1}",
+    name: "テスト#{n + 1}",
+    reading_name: "テスト",
+    postal_code: "999-9999",
+    prefectures: "13",
+    city: "渋谷区",
+    building_name: "シブヤマンション",
+    kind: n == 0 ? "1" : "0",
+    financial_institution: "澤村銀行",
+    branch: "渋谷支店",
+    deposit: "1",
+    account_number: "0123456",
+    account_holder: "テスト"
+  )
+end
+
+User.all.each_with_index do |user,index|
+  next if index == 0
+  user.commissions.create!(
+    title: "依頼",
+    description: "依頼説明文",
+    limit_date: Date.today + 7,
+    reward: "100000",
+    directly: false
+  )
+end

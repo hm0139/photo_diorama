@@ -60,6 +60,11 @@
       <%= f.text_field :building_name, autocomplete: "buiding_name", class: "input-user-text" %>
     </div>
 
+    <div calss="input-item">
+      <%= f.label :kind, "ユーザタイプ" %><br>
+      <%= f.select(:kind, {"依頼者" => 0, "制作者" => 1}, {}, {class: "select-box"}) %>
+    </div>
+
     <h3>口座情報</h3>
     <div class="note">以下は依頼を受ける予定の方のみ必須です</div>
     <div class="input-item">
