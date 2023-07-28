@@ -27,7 +27,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_28_123953) do
   end
 
   create_table "dealings", charset: "utf8", force: :cascade do |t|
-    t.integer "status"
     t.bigint "commission_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
