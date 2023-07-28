@@ -14,6 +14,7 @@ class User < ApplicationRecord
     validates :postal_code, format: {with: /\A\d{3}-\d{4}\z/, message: "が正しくありません"}
     validates :prefectures, numericality: {other_than: 0}
     validates :city
+    validates :kind, inclusion: [0,1]
   end
 
   #注 : 以下のバリデーションは空白を許可
