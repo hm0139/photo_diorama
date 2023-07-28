@@ -4,7 +4,9 @@ class DealingsController < ApplicationController
   end
 
   def create
-    @dealing = Dealing.create(status: 0, user_id: current_user.id, commission_id: params[:commission_id])
+    @dealing = Dealing.create(user_id: current_user.id, commission_id: params[:commission_id])
+    @commission = @dealing.commission
+    @commission.update(status: Commission.statuses[:dealing])
     redirect_to commission_dealing_path(@dealing.commission.id,@dealing)
   end
 end
