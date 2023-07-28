@@ -55,7 +55,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_27_141419) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "kinds", default: 0, null: false
+    t.integer "kind", default: 0, null: false
   end
 
   add_foreign_key "commissions", "users"
