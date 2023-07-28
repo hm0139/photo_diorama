@@ -62,7 +62,7 @@
 
     <div calss="input-item">
       <%= f.label :kind, "ユーザタイプ" %><br>
-      <%= f.select(:kind, User.kinds, {}, {class: "select-box"}) %>
+      <%= f.select(:kind, {"依頼者" => 0, "制作者" => 1}, {}, {class: "select-box"}) %>
     </div>
 
     <h3>口座情報</h3>
