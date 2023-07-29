@@ -32,6 +32,14 @@ body{
   color: white;
 }
 
+.flash-messages{
+  padding: 10px 0;
+  background-color: aqua;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+}
+
 /* サイトヘッダ */
 .site-header{
   display: flex;
