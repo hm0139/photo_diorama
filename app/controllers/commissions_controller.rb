@@ -34,6 +34,10 @@ class CommissionsController < ApplicationController
     redirect_to root_path
   end
 
+  def unsuccessful
+    @commission = Commission.find(params[:id])
+  end
+
   private
   def commission_param
     params.require(:commission).permit(:title, :description, :limit_date, :reward, :directly, :contractor).merge(user_id: current_user.id)
