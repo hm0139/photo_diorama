@@ -399,3 +399,8 @@ body{
   justify-content: space-around;
   overflow: scroll;
 }
+
+.user-upload-image{
+  width: 250px;
+  height: auto;
+}
