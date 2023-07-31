@@ -4,7 +4,7 @@
   <div class="user-profile">
     <div class="user-info-item">ユーザ名 : <%= @user.user_name %></div>
     <div class="user-info-item">現在ランク : <%= @user.rank %></div>
-    <% if current_user.kind == 1 %>
+    <% if user_signed_in? && current_user.kind == 1 %>
       <h3><%= @user.user_name %>さんの実績</h3>
       <% if @achievement %>
         <div class="user-info-item">今までに受けた依頼数 : <%= @achievement.commission_count %></div>
@@ -24,7 +24,7 @@
           </div>
         <% end %>
         <%if current_user.id == @user.id %>
-          <div><%= link_to "プロフィールを編集する", root_path %></div>
+          <div><%= link_to "プロフィールを編集する", edit_user_achievement_path(@user,@achievement) %></div>
         <% end %>
       <% else %>
         <div>まだプロフィールが設定されていません</div>
@@ -33,7 +33,7 @@
         <% end %>
       <% end %>
     <% end %>
-    <% if current_user.id == @user.id %>
+    <% if user_signed_in? && current_user.id == @user.id %>
       <h3>個人情報</h3>
       <div class="profile-description">ここから下は御本人のみ表示されます。</div>
       <div class="user-info-item">Eメール : <%= @user.email %></div>
