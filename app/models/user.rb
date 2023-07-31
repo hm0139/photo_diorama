@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :commissions
   has_many :notifications
   has_many :dealings
+  has_one :achievement
 
   with_options presence: true do
     validates :user_name

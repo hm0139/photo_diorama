@@ -25,6 +25,11 @@
       </div>
     </form>
   </div>
+  <div class="creators-link">
+    <div class="creators-button">
+      <%= link_to "制作者一覧はこちら", creators_path %>
+    </div>
+  </div>
   <div class="requests">
     <div class="request-list">
       <%= render partial: "commissions_item", collection: @commissions, as: "commission" %>

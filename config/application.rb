@@ -11,6 +11,7 @@ module PhotoDiorama
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
     config.action_view.field_error_proc = Proc.new { |html_tag, instance| html_tag }
+    config.active_storage.variant_processor = :mini_magick
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

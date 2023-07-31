@@ -18,7 +18,7 @@
           <% if @notification_count > 0 %>
             <%= link_to "依頼が届いています！", notifications_path, class: "notification" %>
           <% end %>
-          <div class="header-user-name"><%= current_user.user_name %></div>
+          <div class="header-user-name"><%= link_to current_user.user_name, user_path(current_user) %></div>
           <%= link_to "依頼する", new_commission_path, class: "header-button" %>
           <%= link_to "ログアウト", destroy_user_session_path, data:{turbo_method: :delete}, class: "header-button" %>
         <% else %>
