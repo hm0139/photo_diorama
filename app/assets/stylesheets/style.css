@@ -350,3 +350,24 @@ body{
   padding: 0 20px;
   margin-bottom: 30px;
 }
+
+/* ユーザ詳細 */
+.user-profile-container{
+  display: flex;
+  justify-content: center;
+}
+
+.user-profile{
+  border: 1px solid aqua;
+  width: 80vw;
+  padding: 10px 20px;
+}
+
+.profile-description{
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.user-info-item{
+  margin: 10px 0;
+}

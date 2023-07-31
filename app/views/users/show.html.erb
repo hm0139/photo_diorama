@@ -1,0 +1,28 @@
+<h2 class="sub-title"><%= @user.user_name %>さんのプロフィール</h2>
+
+<div class="user-profile-container">
+  <div class="user-profile">
+    <div class="user-info-item">ユーザ名 : <%= @user.user_name %></div>
+    <div class="user-info-item">現在ランク : <%= @user.rank %></div>
+    <% if current_user.kind == 1 %>
+      <H3><%= @user.user_name %>さんの実績</h3>
+    <% end %>
+    <% if current_user.id == @user.id %>
+      <h3>個人情報</h3>
+      <div class="profile-description">ここから下は御本人のみ表示されます。</div>
+      <div class="user-info-item">Eメール : <%= @user.email %></div>
+      <div class="user-info-item">名前 : <%= @user.name %></div>
+      <div class="user-info-item">名前（ヨミガナ） : <%= @user.reading_name %></div>
+      <div class="user-info-item">郵便番号 : <%= @user.postal_code %></div>
+      <div class="user-info-item">都道府県 : <%= Prefecture.data[@user.prefectures.to_i][:name] %></div>
+      <div class="user-info-item">市区町村 : <%= @user.city %></div>
+      <div class="user-info-item">マンション・建物名 : <%= @user.building_name %></div>
+      <div class="user-info-item">金融機関名 : <%= @user.financial_institution %></div>
+      <div class="user-info-item">支店名 : <%= @user.branch %></div>
+      <% deposit = ["", "普通" ,"定期", "当座"] %>
+      <div class="user-info-item">預金種目 : <%= deposit[@user.deposit.to_i] %></div>
+      <div class="user-info-item">口座番号 : <%= @user.account_number %></div>
+      <div class="user-info-item">口座名義 : <%= @user.account_holder %></div>
+    <% end %>
+  </div>
+</div>

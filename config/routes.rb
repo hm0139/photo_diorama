@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   resources :notifications, only:[:index, :destroy]
   
   resources :creators, only:[:index]
+  resources :users, only:[:show]
 end
