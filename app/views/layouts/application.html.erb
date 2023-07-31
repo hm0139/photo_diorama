@@ -27,6 +27,9 @@
         <% end %>
       </div>
     </header>
+    <% flash.each do |message_type, message| %>
+      <div class="flash-messages"><%= message %></div>
+    <% end %>
     <%= yield %>
     <footer class="site-footer">
       Photo Diorama - 2023

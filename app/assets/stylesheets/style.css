@@ -25,6 +25,21 @@ body{
   color: white;
 }
 
+.button-gray{
+  padding: 5px 20px;
+  text-decoration: none;
+  background-color: gray;
+  color: white;
+}
+
+.flash-messages{
+  padding: 10px 0;
+  background-color: aqua;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+}
+
 /* サイトヘッダ */
 .site-header{
   display: flex;
@@ -319,4 +334,19 @@ body{
   padding: 10px 20px;
   margin-bottom: 10px;
   border: 1px solid #808080;
+}
+
+/* 取引確認 */
+.confirmation{
+  text-align: center;
+  margin: 10px 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.commission-select-button{
+  display: flex;
+  justify-content: space-around;
+  padding: 0 20px;
+  margin-bottom: 30px;
 }

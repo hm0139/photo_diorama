@@ -27,13 +27,15 @@
   )
 end
 
+count = 1
 User.all.each do |user|
   next if user.kind == 1
   user.commissions.create!(
-    title: "依頼",
-    description: "依頼説明文",
+    title: "依頼#{count}",
+    description: "依頼説明文#{count}",
     limit_date: Date.today + 7,
     reward: "100000",
     directly: false
   )
+  count += 1
 end

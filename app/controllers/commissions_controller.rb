@@ -2,7 +2,7 @@ class CommissionsController < ApplicationController
   before_action :direct_commission, only: [:show]
 
   def index
-    @commissions = Commission.where(directly: false)
+    @commissions = Commission.where(directly: false).where(status: Commission.statuses[:undealt])
   end
 
   def new
@@ -32,6 +32,10 @@ class CommissionsController < ApplicationController
     commission.save
     Notification.create(user_id: creator.id, commission_id: commission.id)
     redirect_to root_path
+  end
+
+  def unsuccessful
+    @commission = Commission.find(params[:id])
   end
 
   private

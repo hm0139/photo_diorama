@@ -1,0 +1,9 @@
+<h2 class="sub-title">依頼確認</h2>
+<div class="confirmation">以下の依頼を受けますか？</div>
+
+<%= render partial: "commissions/commission", locals: {commission: @commission} %>
+
+<div class="commission-select-button">
+  <%= link_to "はい", commission_dealings_path, data:{turbo_method: :post}, class: "button-orange" %>
+  <%= link_to "いいえ", commission_path(@commission), class: "button-gray" %>
+</div>

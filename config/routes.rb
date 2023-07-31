@@ -4,10 +4,12 @@ Rails.application.routes.draw do
   resources :commissions, only:[:index, :new, :create, :show] do
     member do
       patch "direct"
+      get "unsuccessful"
     end
+    resources :dealings, only:[:new, :create, :show]
   end
 
-  resources :notifications, only:[:index]
+  resources :notifications, only:[:index, :destroy]
   
   resources :creators, only:[:index]
 end
