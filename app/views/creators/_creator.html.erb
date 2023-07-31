@@ -1,5 +1,5 @@
 <div class="create-item">
-  <div class="create-name"><%= creator.user_name %></div>
+  <div class="create-name"><%= link_to creator.user_name, user_path(creator) %></div>
   <div class="commission-select">
     <%= link_to "このユーザのプロフィールを見る", user_path(creator), class: "button-orange" %>
     <% if @commission %>
