@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :notifications, only:[:index, :destroy]
   
   resources :creators, only:[:index]
-  resources :users, only:[:show]
-  resources :achievement, only:[:new]
+  resources :users, only:[:show] do
+    resources :achievements, only:[:new]
+  end
 end
