@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_28_123953) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_31_032323) do
+  create_table "achievements", charset: "utf8", force: :cascade do |t|
+    t.text "achievement_text"
+    t.integer "commission_count", default: 0, null: false
+    t.text "text"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_achievements_on_user_id"
+  end
+
   create_table "commissions", charset: "utf8mb4", force: :cascade do |t|
     t.string "title", null: false
     t.text "description", null: false
@@ -68,6 +78,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_28_123953) do
     t.integer "kind", default: 0, null: false
   end
 
+  add_foreign_key "achievements", "users"
   add_foreign_key "commissions", "users"
   add_foreign_key "dealings", "commissions"
   add_foreign_key "dealings", "users"
