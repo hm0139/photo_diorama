@@ -5,15 +5,26 @@
     <div class="user-info-item">ユーザ名 : <%= @user.user_name %></div>
     <div class="user-info-item">現在ランク : <%= @user.rank %></div>
     <% if current_user.kind == 1 %>
-      <H3><%= @user.user_name %>さんの実績</h3>
+      <h3><%= @user.user_name %>さんの実績</h3>
       <% if @achievement %>
-        <div><%= @achievement.achievement_text %></div>
-        <div><%= @achievement.commission_count %></div>
-        <div><%= @achievement.text %></div>
+        <div class="user-info-item">今までに受けた依頼数 : <%= @achievement.commission_count %></div>
+        <div class="user-info-item">
+          <div class="user-sub-title">今までの実績</div>
+          <%= @achievement.achievement_text %>
+        </div>
+        <div class="user-info-item">
+          <div class="user-sub-title">実績紹介</div>
+          <%= @achievement.text %>
+        </div>
         <% if @achievement.images.attached? %>
+          <div class="profile-images">
           <% @achievement.images.each do |image| %>
-            <div><%= image_tag image.variant(resize: "250x250") %></div>
+            <div class="profile-image"><%= image_tag image.variant(resize: "250x250") %></div>
           <% end %>
+          </div>
+        <% end %>
+        <%if current_user.id == @user.id %>
+          <div><%= link_to "プロフィールを編集する", root_path %></div>
         <% end %>
       <% else %>
         <div>まだプロフィールが設定されていません</div>

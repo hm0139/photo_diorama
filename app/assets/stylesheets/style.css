@@ -371,3 +371,14 @@ body{
 .user-info-item{
   margin: 10px 0;
 }
+
+.user-sub-title{
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.profile-images{
+  display: flex;
+  justify-content: space-around;
+  overflow: scroll;
+}
