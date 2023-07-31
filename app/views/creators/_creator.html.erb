@@ -1,8 +1,9 @@
-<% if current_user.id != creator.id %>
-  <div class="create-item">
-    <div class="create-name"><%= creator.user_name %></div>
-    <div class="commission-select">
+<div class="create-item">
+  <div class="create-name"><%= creator.user_name %></div>
+  <div class="commission-select">
+    <%= link_to "このユーザのプロフィールを見る", user_path(creator), class: "button-orange" %>
+    <% if @commission %>
       <%= link_to "このユーザに依頼する", direct_commission_path(@commission, user_id: creator.id), data: {turbo_method: :patch}, class: "button-orange" %>
-    </div>
+    <% end %>
   </div>
-<% end %>
+</div>
