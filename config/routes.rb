@@ -13,6 +13,6 @@ Rails.application.routes.draw do
   
   resources :creators, only:[:index]
   resources :users, only:[:show] do
-    resources :achievements, only:[:new]
+    resources :achievements, only:[:new, :create]
   end
 end

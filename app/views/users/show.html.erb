@@ -12,6 +12,9 @@
         <div><%= @achievement.text %></div>
       <% else %>
         <div>まだプロフィールが設定されていません</div>
+        <% if current_user.id == @user.id %>
+          <div><%= link_to "プロフィールを設定する", new_user_achievement_path(@user) %></div>
+        <% end %>
       <% end %>
     <% end %>
     <% if current_user.id == @user.id %>

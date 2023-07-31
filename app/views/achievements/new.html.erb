@@ -1,0 +1,19 @@
+<h2 class="sub-title">プロフィールの設定</h2>
+
+<div class="user-form-container">
+  <%= form_with model: [@user, @achievement], local: true, class: "create-commission-form" do |f| %>
+    <%= render 'shared/error_messages', model: f.object %>
+    <div class="input-item">
+      <%= f.label :achievement_text, "今までの実績" %>
+      <%= f.text_area :achievement_text, class: "input-text" %>
+    </div>
+    <div class="input-item">
+      <%= f.label :text, "今までの制作物" %>
+      <%= f.text_area :text, class: "input-text" %>
+    </div>
+    <div>
+      <%= f.label :images, "制作物の画像" %><br>
+      <%= f.file_field :images, multiple: true %>
+    </div>
+  <% end %>
+</div>
