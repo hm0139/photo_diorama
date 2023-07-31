@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   
   resources :creators, only:[:index]
   resources :users, only:[:show]
+  resources :achievement, only:[:new]
 end

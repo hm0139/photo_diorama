@@ -6,6 +6,13 @@
     <div class="user-info-item">現在ランク : <%= @user.rank %></div>
     <% if current_user.kind == 1 %>
       <H3><%= @user.user_name %>さんの実績</h3>
+      <% if @achievement %>
+        <div><%= @achievement.achievement_text %></div>
+        <div><%= @achievement.commission_count %></div>
+        <div><%= @achievement.text %></div>
+      <% else %>
+        <div>まだプロフィールが設定されていません</div>
+      <% end %>
     <% end %>
     <% if current_user.id == @user.id %>
       <h3>個人情報</h3>
