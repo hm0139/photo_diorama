@@ -10,6 +10,11 @@
         <div><%= @achievement.achievement_text %></div>
         <div><%= @achievement.commission_count %></div>
         <div><%= @achievement.text %></div>
+        <% if @achievement.images.attached? %>
+          <% @achievement.images.each do |image| %>
+            <div><%= image_tag image.variant(resize: "250x250") %></div>
+          <% end %>
+        <% end %>
       <% else %>
         <div>まだプロフィールが設定されていません</div>
         <% if current_user.id == @user.id %>
