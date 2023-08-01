@@ -12,7 +12,7 @@ class Commission < ApplicationRecord
   validates :directly, inclusion: [true, false]
   validate :date_before_start
 
-  def self.search(search, less, greater)
+  def self.search(search, less, greater, limit_days)
     result = nil
     if search != ""
       result = Commission.where("title LIKE(?)", "%#{search}%").where(directly: false).where(status: Commission.statuses[:undealt])
@@ -27,6 +27,10 @@ class Commission < ApplicationRecord
       else
         result = result.where(reward: less..greater)
       end
+    end
+    if limit_days != ""
+      limit_date = Date.today + limit_days.to_i
+      result = result.where(limit_date: ..limit_date)
     end
     return result
   end
