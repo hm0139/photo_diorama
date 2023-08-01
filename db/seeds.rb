@@ -6,36 +6,38 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+Faker::Config.locale = :ja
+
 20.times do |n|
+  name = Gimei.name
+  address = Gimei.address
   User.create!(
-    user_name: "test#{n + 1}",
+    user_name: Faker::Name.initials(number: 5),
     email: "test#{n + 1}@gmail.com",
     password: "testuser#{n + 1}",
     password_confirmation: "testuser#{n + 1}",
-    name: "テスト#{n + 1}",
-    reading_name: "テスト",
-    postal_code: "999-9999",
-    prefectures: "13",
-    city: "渋谷区",
-    building_name: "シブヤマンション",
+    name: name.kanji,
+    reading_name: name.katakana.gsub(/ /,""),
+    postal_code: Faker::Address.zip_code,
+    prefectures: Faker::Number.between(from: 1, to: 47),
+    city: address.city.kanji,
+    building_name: "",
     kind: n % 2 == 0 ? "1" : "0",
     financial_institution: "澤村銀行",
-    branch: "渋谷支店",
+    branch: "#{address.city.kanji}支店",
     deposit: "1",
     account_number: "0123456",
-    account_holder: "テスト"
+    account_holder: name.katakana.gsub(/ /,"")
   )
 end
 
-count = 1
 User.all.each do |user|
   next if user.kind == 1
   user.commissions.create!(
-    title: "依頼#{count}",
-    description: "依頼説明文#{count}",
+    title: Faker::Lorem.paragraph,
+    description: Faker::Lorem.sentence,
     limit_date: Date.today + 7,
-    reward: "100000",
+    reward: Faker::Number.between(from: 5000, to: 1000000),
     directly: false
   )
-  count += 1
 end
