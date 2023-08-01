@@ -1,4 +1,4 @@
-<h2 class="sub-title">"<%= @keyword %>"の検索結果</h2>
+<h2 class="sub-title"><%= @keyword != "" ? "\"#{@keyword}\"の" : "" %>検索結果</h2>
 
 <div class="request-container">
   <div class="request-search">
@@ -17,6 +17,7 @@
       </div>
     <% end %>
   </div>
+  <div class="result-count"><%= @count %>件の検索結果</div>
   <div class="requests">
     <% if @commissions.present? %>
       <div class="request-list">

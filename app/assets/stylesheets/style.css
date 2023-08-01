@@ -410,3 +410,10 @@ body{
   width: 250px;
   height: auto;
 }
+
+/* 検索結果ページ */
+.result-count{
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+}

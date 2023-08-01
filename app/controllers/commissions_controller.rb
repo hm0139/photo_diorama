@@ -40,7 +40,8 @@ class CommissionsController < ApplicationController
 
   def search
     @keyword = params[:keyword]
-    @commissions = Commission.search(@keyword).includes(:user)
+    @commissions = Commission.search(@keyword, params[:reward_lower], params[:reward_upper]).includes(:user)
+    @count = @commissions.count
   end
 
   private

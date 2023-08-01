@@ -12,12 +12,23 @@ class Commission < ApplicationRecord
   validates :directly, inclusion: [true, false]
   validate :date_before_start
 
-  def self.search(search)
+  def self.search(search, less, greater)
+    result = nil
     if search != ""
-      Commission.where("title LIKE(?)", "%#{search}%").where(directly: false).where(status: Commission.statuses[:undealt])
+      result = Commission.where("title LIKE(?)", "%#{search}%").where(directly: false).where(status: Commission.statuses[:undealt])
     else
-      Commission.where(directly: false).where(status: Commission.statuses[:undealt])
+      result = Commission.where(directly: false).where(status: Commission.statuses[:undealt])
     end
+    if (less != "" || greater != "")
+      if less == ""
+        result = result.where(reward: ..greater)
+      elsif greater == ""
+        result = result.where(reward: less..)
+      else
+        result = result.where(reward: less..greater)
+      end
+    end
+    return result
   end
 
   private
