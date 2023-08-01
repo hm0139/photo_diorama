@@ -1,0 +1,22 @@
+<div class="request-search">
+    <%= form_with url: search_commissions_path, local: true, method: :get, class: "request-search-form" do |f| %>
+      <div class="form-upper">
+        <%= f.text_field :keyword, placeholder: "ここにキーワードを入力", class: "search-input" %>
+      </div>
+      <div class="form-lower">
+        <div class="search-input-item">
+          <%= f.label :reward, "報酬で絞り込み" %>
+          <%= f.text_field :reward_lower, placeholder: "下限", class: "input-number" %>
+          〜
+          <%= f.text_field :reward_upper, placeholder: "上限", class: "input-number" %>
+        </div>
+        <div class="search-input-item">
+          <%= f.label :limit_days, "残り応募日数" %>
+          <%= f.text_field :limit_days, class: "input-number" %>
+        </div>
+      </div>
+      <div class="search-button-container">
+        <%= f.submit value: "検索", class: "search-button" %>
+      </div>
+    <% end %>
+  </div>
