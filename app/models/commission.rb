@@ -12,6 +12,29 @@ class Commission < ApplicationRecord
   validates :directly, inclusion: [true, false]
   validate :date_before_start
 
+  def self.search(search, less, greater, limit_days)
+    result = nil
+    if search != ""
+      result = Commission.where("title LIKE(?)", "%#{search}%").where(directly: false).where(status: Commission.statuses[:undealt])
+    else
+      result = Commission.where(directly: false).where(status: Commission.statuses[:undealt])
+    end
+    if (less != "" || greater != "")
+      if less == ""
+        result = result.where(reward: ..greater)
+      elsif greater == ""
+        result = result.where(reward: less..)
+      else
+        result = result.where(reward: less..greater)
+      end
+    end
+    if limit_days != ""
+      limit_date = Date.today + limit_days.to_i
+      result = result.where(limit_date: ..limit_date)
+    end
+    return result
+  end
+
   private
   def date_before_start
     return if limit_date.blank?

@@ -1,0 +1,15 @@
+<h2 class="sub-title"><%= @keyword != "" ? "\"#{@keyword}\"の" : "" %>検索結果</h2>
+
+<div class="request-container">
+  <%= render partial: "search_from" %>
+  <div class="result-count"><%= @count %>件の検索結果</div>
+  <div class="requests">
+    <% if @commissions.present? %>
+      <div class="request-list">
+        <%= render partial: "commissions_item", collection: @commissions, as: "commission" %>
+      </div>
+    <% else %>
+      <div class="message">検索結果はありません</div>
+    <% end %>
+  </div>
+</div>

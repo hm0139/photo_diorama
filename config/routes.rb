@@ -6,6 +6,9 @@ Rails.application.routes.draw do
       patch "direct"
       get "unsuccessful"
     end
+    collection do
+      get "search"
+    end
     resources :dealings, only:[:new, :create, :show]
   end
 

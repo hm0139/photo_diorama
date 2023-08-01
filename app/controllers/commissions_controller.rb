@@ -2,7 +2,7 @@ class CommissionsController < ApplicationController
   before_action :direct_commission, only: [:show]
 
   def index
-    @commissions = Commission.where(directly: false).where(status: Commission.statuses[:undealt])
+    @commissions = Commission.where(directly: false).where(status: Commission.statuses[:undealt]).includes(:user)
   end
 
   def new
@@ -36,6 +36,12 @@ class CommissionsController < ApplicationController
 
   def unsuccessful
     @commission = Commission.find(params[:id])
+  end
+
+  def search
+    @keyword = params[:keyword]
+    @commissions = Commission.search(@keyword, params[:reward_lower], params[:reward_upper], params[:limit_days]).includes(:user)
+    @count = @commissions.count
   end
 
   private
