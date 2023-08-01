@@ -313,7 +313,7 @@ body{
 .creators-list-container{
   display: flex;
   justify-content: center;
-  margin-bottom: 30px;
+  margin: 60px 0;
 }
 
 .creators-list{
