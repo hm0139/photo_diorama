@@ -38,6 +38,11 @@ class CommissionsController < ApplicationController
     @commission = Commission.find(params[:id])
   end
 
+  def search
+    @keyword = params[:keyword]
+    @commissions = Commission.search(@keyword)
+  end
+
   private
   def commission_param
     params.require(:commission).permit(:title, :description, :limit_date, :reward, :directly, :contractor).merge(user_id: current_user.id)

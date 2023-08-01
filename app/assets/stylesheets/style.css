@@ -40,6 +40,12 @@ body{
   font-weight: 600;
 }
 
+.message{
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+}
+
 /* サイトヘッダ */
 .site-header{
   display: flex;

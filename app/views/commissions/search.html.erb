@@ -1,0 +1,29 @@
+<h2 class="sub-title">"<%= @keyword %>"の検索結果</h2>
+
+<div class="request-container">
+  <div class="request-search">
+    <%= form_with url: search_commissions_path, local: true, method: :get, class: "request-search-form" do |f| %>
+      <div class="form-upper">
+        <%= f.text_field :keyword, placeholder: "ここにキーワードを入力", class: "search-input" %>
+        <%= f.submit value: "検索", class: "search-button" %>
+      </div>
+      <div class="form-lower">
+        <%= f.label :reward, "報酬で絞り込み" %>
+        <%= f.text_field :reward_lower, class: "input-number" %>
+        〜
+        <%= f.text_field :reward_upper, class: "input-number" %>
+        <%= f.label :limit_date, "残り応募日数" %>
+        <%= f.text_field :limit_date, class: "input-number" %>
+      </div>
+    <% end %>
+  </div>
+  <div class="requests">
+    <% if @commissions.present? %>
+      <div class="request-list">
+        <%= render partial: "commissions_item", collection: @commissions, as: "commission" %>
+      </div>
+    <% else %>
+      <div class="message">検索結果はありません</div>
+    <% end %>
+  </div>
+</div>
