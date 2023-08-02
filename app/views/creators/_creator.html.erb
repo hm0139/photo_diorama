@@ -3,7 +3,7 @@
   <div class="commission-select">
     <%= link_to "このユーザのプロフィールを見る", user_path(creator), class: "button-orange" %>
     <% if @commission %>
-      <%= link_to "このユーザに依頼する", direct_commission_path(@commission, user_id: creator.id), data: {turbo_method: :patch}, class: "button-orange" %>
+      <%= link_to "このユーザに依頼する", selected_confirmation_commission_path(@commission, user_id: creator.id), class: "button-orange" %>
     <% end %>
   </div>
 </div>

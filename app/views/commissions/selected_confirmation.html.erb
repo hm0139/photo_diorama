@@ -1,0 +1,16 @@
+<h2 class="sub-title">確認</h2>
+<div class="confirmation">以下のユーザでよろしいですか？</div>
+
+<div class="page-description">直接依頼した場合、以下のユーザに通知されます。</div>
+
+<div class="user-profile-container">
+  <div class="user-profile">
+    <div class="user-info-item">ユーザ名 : <%= @creator.user_name %></div>
+    <div class="user-info-item">現在ランク : <%= @creator.rank %></div>
+  </div>
+</div>
+
+<div class="commission-select-button">
+  <%= link_to "はい", direct_commission_path(@commission, user_id: @creator.id), data:{turbo_method: :patch}, class: "button-orange" %>
+  <%= link_to "いいえ", select_commission_path(@commission), class: "button-gray" %>
+</div>
