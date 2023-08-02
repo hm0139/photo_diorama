@@ -1,5 +1,6 @@
 class CommissionsController < ApplicationController
   before_action :direct_commission, only: [:show]
+  before_action :redirect_root, only:[:select, :selected_confirmation, :direct]
 
   def index
     @commissions = Commission.where(directly: false).where(status: Commission.statuses[:undealt]).includes(:user)
@@ -27,20 +28,17 @@ class CommissionsController < ApplicationController
 
   def select
     @creators = User.where(kind: 1).where.not(id: current_user.id)
-    @commission = Commission.find(params[:id])
   end
 
   def selected_confirmation
-    @commission = Commission.find(params[:id])
     @creator = User.find(params[:user_id])
   end
 
   def direct
-    commission = Commission.find(params[:id])
     creator = User.find(params[:user_id])
-    commission.contractor_id = creator.id
-    commission.save
-    Notification.create(user_id: creator.id, commission_id: commission.id)
+    @commission.contractor_id = creator.id
+    @commission.save
+    Notification.create(user_id: creator.id, commission_id: @commission.id)
     redirect_to root_path, flash: {direcly: "#{creator.user_name}さんに依頼しました"}
   end
 
@@ -62,6 +60,13 @@ class CommissionsController < ApplicationController
   def direct_commission
     @commission = Commission.find(params[:id])
     if @commission.directly && (!user_signed_in? || @commission.contractor_id != current_user.id)
+      redirect_to root_path
+    end
+  end
+
+  def redirect_root
+    @commission = Commission.find(params[:id])
+    if !user_signed_in? || @commission.user_id != current_user.id
       redirect_to root_path
     end
   end
