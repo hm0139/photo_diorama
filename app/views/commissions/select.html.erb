@@ -1,0 +1,9 @@
+<h2 class="sub-title">制作者の選択</h2>
+
+<%= render partial: "creators/search_form" %>
+
+<div class="creators-list-container">
+  <div class="creators-list">
+    <%= render partial: "creators/creator", collection: @creators %>
+  </div>
+</div>

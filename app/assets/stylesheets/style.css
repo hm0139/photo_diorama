@@ -46,6 +46,11 @@ body{
   font-weight: 600;
 }
 
+.page-description{
+  margin: 25px 0;
+  text-align: center;
+}
+
 /* サイトヘッダ */
 .site-header{
   display: flex;
