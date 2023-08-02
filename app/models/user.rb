@@ -24,5 +24,12 @@ class User < ApplicationRecord
   validates :account_number, format: {with: /\A\d{4,7}\z|\A\z/ , message: "は正しく入力してください"}
   validates :account_holder, format: {with: /\A[ァ-ヴー]+\z|\A\z/, message: "は全角カタカナで記入してください"}
 
+  def self.search(user_name)
+    if user_name != ""
+      User.where("user_name LIKE(?)", "%#{user_name}%").where(kind: 1)
+    else
+      User.where(kind: 1)
+    end
+  end
   #enum kind: {requester: 0, creator: 1}
 end

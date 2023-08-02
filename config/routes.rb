@@ -14,7 +14,11 @@ Rails.application.routes.draw do
 
   resources :notifications, only:[:index, :destroy]
   
-  resources :creators, only:[:index]
+  resources :creators, only:[:index] do
+    collection do
+      get "search"
+    end
+  end
   resources :users, only:[:show] do
     resources :achievements, only:[:new, :create ,:edit ,:update]
   end
