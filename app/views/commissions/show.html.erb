@@ -1,3 +1,7 @@
 <h2 class="sub-title">依頼詳細</h2>
 
 <%= render partial: "commission", locals: {commission: @commission} %>
+
+<div class="user-button-center">
+  <%= link_to "戻る", session[:previous_url], class: "button-gray" %>
+</div>
