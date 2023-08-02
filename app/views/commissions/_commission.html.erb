@@ -17,7 +17,7 @@
     <div class="limit-date">
       <span class="information-item">期限日 : </span><span class="important"><%= commission.limit_date %></span>
     </div>
-    <% if controller.controller_name == "commissions" && controller.action_name == "show" && user_signed_in? && commission.user_id != current_user.id %>
+    <% if controller.controller_name == "commissions" && controller.action_name == "show" && user_signed_in? && commission.user_id != current_user.id && current_user.kind == 1 %>
       <div class="commission-reception">
         <%= link_to "この依頼を受け付ける", new_commission_dealing_path(commission), class: "agreement" %>
         <% if commission.directly %>

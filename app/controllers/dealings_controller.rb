@@ -1,4 +1,6 @@
 class DealingsController < ApplicationController
+  before_action :redirect_root
+
   def new
     @commission = Commission.find(params[:commission_id])
   end
@@ -11,5 +13,12 @@ class DealingsController < ApplicationController
       @commission.notification.destroy
     end
     redirect_to commission_dealing_path(@dealing.commission.id,@dealing)
+  end
+
+  private
+  def redirect_root
+    if !user_signed_in? || current_user.kind == 0
+      redirect_to root_path
+    end
   end
 end
