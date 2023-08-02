@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root to: "commissions#index"
   resources :commissions, only:[:index, :new, :create, :show] do
     member do
+      get "select"
+      get "selected_confirmation"
       patch "direct"
       get "unsuccessful"
     end

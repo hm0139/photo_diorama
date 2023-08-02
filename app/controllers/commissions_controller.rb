@@ -13,7 +13,7 @@ class CommissionsController < ApplicationController
     @commission = Commission.new(commission_param)
     if @commission.save
       if @commission.directly
-        redirect_to controller: :creators, action: :index, params: {"id" => @commission.id}
+        redirect_to select_commission_path(@commission)
       else
         redirect_to root_path
       end
@@ -25,13 +25,23 @@ class CommissionsController < ApplicationController
   def show
   end
 
+  def select
+    @creators = User.where(kind: 1).where.not(id: current_user.id)
+    @commission = Commission.find(params[:id])
+  end
+
+  def selected_confirmation
+    @commission = Commission.find(params[:id])
+    @creator = User.find(params[:user_id])
+  end
+
   def direct
     commission = Commission.find(params[:id])
     creator = User.find(params[:user_id])
     commission.contractor_id = creator.id
     commission.save
     Notification.create(user_id: creator.id, commission_id: commission.id)
-    redirect_to root_path
+    redirect_to root_path, flash: {direcly: "#{creator.user_name}さんに依頼しました"}
   end
 
   def unsuccessful
