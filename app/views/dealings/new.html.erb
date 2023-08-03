@@ -3,7 +3,7 @@
 
 <%= render partial: "commissions/commission", locals: {commission: @commission} %>
 
-<div class="commission-select-button">
+<div class="select-button">
   <%= link_to "はい", commission_dealings_path, data:{turbo_method: :post}, class: "button-orange" %>
   <%= link_to "いいえ", commission_path(@commission), class: "button-gray" %>
 </div>

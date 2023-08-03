@@ -4,6 +4,7 @@ class CommissionsController < ApplicationController
 
   def index
     @commissions = Commission.where(directly: false).where(status: Commission.statuses[:undealt]).includes(:user)
+    session[:previous_url] = request.url
   end
 
   def new

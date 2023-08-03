@@ -32,6 +32,12 @@ body{
   color: white;
 }
 
+.user-button-center{
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
 .flash-messages{
   padding: 10px 0;
   background-color: aqua;
@@ -49,6 +55,13 @@ body{
 .page-description{
   margin: 25px 0;
   text-align: center;
+}
+
+.select-button{
+  display: flex;
+  justify-content: space-around;
+  padding: 0 20px;
+  margin-bottom: 30px;
 }
 
 /* サイトヘッダ */
@@ -340,13 +353,6 @@ body{
   margin: 10px 0;
   font-size: 18px;
   font-weight: 600;
-}
-
-.commission-select-button{
-  display: flex;
-  justify-content: space-around;
-  padding: 0 20px;
-  margin-bottom: 30px;
 }
 
 /* ユーザ詳細 */

@@ -5,12 +5,14 @@
 
 <div class="creators-list-container">
   <% if @creators.present? %>
-
-      <div class="creators-list">
-        <%= render partial: "creator", collection: @creators %>
-      </div>
-    
+    <div class="creators-list">
+      <%= render partial: "creator", collection: @creators %>
+    </div>    
   <% else %>
     <div class="message">検索結果はありません</div>
   <% end %>
+</div>
+
+<div class="user-button-center">
+  <%= link_to "戻る", creators_path, class: "button-gray" %>
 </div>
