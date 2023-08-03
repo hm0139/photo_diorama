@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_31_034327) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_03_032750) do
   create_table "achievements", charset: "utf8", force: :cascade do |t|
     t.text "achievement_text"
     t.integer "commission_count", default: 0, null: false
@@ -47,6 +47,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_31_034327) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "chats", charset: "utf8", force: :cascade do |t|
+    t.text "post_text", null: false
+    t.bigint "user_id", null: false
+    t.bigint "dealing_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dealing_id"], name: "index_chats_on_dealing_id"
+    t.index ["user_id"], name: "index_chats_on_user_id"
   end
 
   create_table "commissions", charset: "utf8mb4", force: :cascade do |t|
@@ -109,6 +119,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_31_034327) do
   add_foreign_key "achievements", "users"
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "chats", "dealings"
+  add_foreign_key "chats", "users"
   add_foreign_key "commissions", "users"
   add_foreign_key "dealings", "commissions"
   add_foreign_key "dealings", "users"
