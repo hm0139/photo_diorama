@@ -459,3 +459,13 @@ body{
   width: 100%;
   height: 140px;
 }
+
+.myself{
+  display: flex;
+  justify-content: start;
+}
+
+.partner{
+  display: flex;
+  justify-content: end;
+}

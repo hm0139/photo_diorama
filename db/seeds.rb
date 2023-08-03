@@ -31,13 +31,15 @@ Faker::Config.locale = :ja
   )
 end
 
+n = 1
 User.all.each do |user|
   next if user.kind == 1
   user.commissions.create!(
-    title: Faker::Lorem.paragraph,
+    title: "テスト#{n}_#{Faker::Lorem.sentence}",
     description: Faker::Lorem.sentence,
     limit_date: Date.today + 7,
     reward: Faker::Number.between(from: 5000, to: 1000000),
     directly: false
   )
+  n += 1
 end

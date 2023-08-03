@@ -1,5 +1,12 @@
 <h2 class="sub-title">取引ページ</h2>
 <div class="chat-main">
+<% @chats.each do |chat| %>
+  <% if chat.user_id == current_user.id %>
+    <div class="myself"><%= chat.post_text %></div>
+  <% else %>
+    <div class="partner"><%= chat.post_text %></div>
+  <% end %>
+<% end %>
 </div>
 <div class="chat-form-container">
   <%= form_with model: [@commission, @chat], local: true, class: "chat-form" do |f| %>

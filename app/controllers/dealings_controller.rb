@@ -1,5 +1,5 @@
 class DealingsController < ApplicationController
-  before_action :redirect_root
+  before_action :redirect_root, except: :show
 
   def new
     @commission = Commission.find(params[:commission_id])
@@ -18,6 +18,7 @@ class DealingsController < ApplicationController
   def show
     @chat = Chat.new
     @commission = Commission.find(params[:commission_id])
+    @chats = Chat.merge(Chat.where(user_id: @commission.dealing.user_id).or(Chat.where(user_id: @commission.user_id))).where(dealing_id: @commission.dealing.id)
   end
 
   private
