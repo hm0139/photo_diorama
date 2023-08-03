@@ -443,6 +443,7 @@ body{
 .chat-main{
   border-top: 1px solid gray;
   border-bottom: 1px solid gray;
+  padding: 10px 30px;
   margin-bottom: 20px;
 }
 
@@ -463,9 +464,47 @@ body{
 .myself{
   display: flex;
   justify-content: start;
+  align-items: center;
 }
 
 .partner{
   display: flex;
   justify-content: end;
+  align-items: center;
+}
+
+.myself-user-name{
+  margin-right: 10px;
+  font-size: 10px;
+  color: gray;
+}
+
+.partner-user-name{
+  margin-left: 10px;
+  font-size: 10px;
+  color: gray
+}
+
+.post-content{
+  border: 1px solid gray;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 15px 0 5px;
+  font-size: 15px;
+}
+
+.post-content > pre{
+  margin: 0;
+}
+
+.myself-bg-color{
+  background-color: lightgreen;
+}
+
+.partner-bg-color{
+  background-color: lightskyblue;
+}
+
+.post-date{
+  font-size: 10px;
 }
