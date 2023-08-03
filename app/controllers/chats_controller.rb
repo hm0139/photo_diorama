@@ -1,8 +1,13 @@
 class ChatsController < ApplicationController
   def create
     @commission = Commission.find(params[:commission_id])
-    Chat.create(chat_params)
-    redirect_to commission_dealing_path(@commission,@commission.dealing)
+    @chat = Chat.new(chat_params)
+    if @chat.save
+      redirect_to commission_dealing_path(@commission,@commission.dealing)
+    else
+      @chats = Chat.merge(Chat.where(user_id: @commission.contractor_id).or(Chat.where(user_id: @commission.user_id))).where(dealing_id: @commission.dealing.id)
+      render "dealings/show", status: :unprocessable_entity
+    end
   end
 
   private

@@ -1,9 +1,10 @@
 <h2 class="sub-title">取引ページ</h2>
 <div class="chat-main">
-<%= render partial: "post", collection: @chats, as: "chat" %>
+<%= render partial: "dealings/post", collection: @chats, as: "chat" %>
 </div>
 <div class="chat-form-container">
   <%= form_with model: [@commission, @chat], local: true, class: "chat-form" do |f| %>
+    <%= render 'shared/error_messages', model: f.object %>
     <%= f.text_area :post_text, class: "chat-text-area" %>
     <%= f.submit "送信", class: "button-orange" %>
   <% end %>

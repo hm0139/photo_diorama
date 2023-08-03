@@ -43,6 +43,8 @@ ja:
         description: 説明
         limit_date: 期限日
         reward: 報酬
+      chat:
+        post_text: 文章
     models:
       user: ユーザー
   devise:
