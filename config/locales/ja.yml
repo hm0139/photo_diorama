@@ -38,6 +38,11 @@ ja:
         unconfirmed_email: 未確認Eメール
         unlock_token: ロック解除用トークン
         updated_at: 更新日
+      commission:
+        title: タイトル
+        description: 説明
+        limit_date: 期限日
+        reward: 報酬
     models:
       user: ユーザー
   devise:
