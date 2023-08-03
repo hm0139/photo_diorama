@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       get "search"
     end
     resources :dealings, only:[:new, :create, :show]
+    resources :chats, only:[:create]
   end
 
   resources :notifications, only:[:index, :destroy]
