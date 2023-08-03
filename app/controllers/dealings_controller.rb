@@ -20,7 +20,7 @@ class DealingsController < ApplicationController
 
   def show
     @chat = Chat.new
-    @chats = Chat.merge(Chat.where(user_id: @commission.contractor_id).or(Chat.where(user_id: @commission.user_id))).where(dealing_id: @commission.dealing.id)
+    @chats = Chat.where(dealing_id: @commission.dealing.id).includes(:user)
   end
 
   private
