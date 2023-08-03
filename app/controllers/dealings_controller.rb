@@ -8,9 +8,11 @@ class DealingsController < ApplicationController
   def create
     @dealing = Dealing.create(user_id: current_user.id, commission_id: params[:commission_id])
     @commission = @dealing.commission
-    @commission.update(status: Commission.statuses[:dealing])
     if @commission.directly
+      @commission.update(status: Commission.statuses[:dealing])
       @commission.notification.destroy
+    else
+      @commission.update(contractor_id: current_user.id, status: Commission.statuses[:dealing])
     end
     redirect_to commission_dealing_path(@dealing.commission.id,@dealing)
   end
@@ -18,7 +20,7 @@ class DealingsController < ApplicationController
   def show
     @chat = Chat.new
     @commission = Commission.find(params[:commission_id])
-    @chats = Chat.merge(Chat.where(user_id: @commission.dealing.user_id).or(Chat.where(user_id: @commission.user_id))).where(dealing_id: @commission.dealing.id)
+    @chats = Chat.merge(Chat.where(user_id: @commission.contractor_id).or(Chat.where(user_id: @commission.user_id))).where(dealing_id: @commission.dealing.id)
   end
 
   private
