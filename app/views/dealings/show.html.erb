@@ -1,1 +1,9 @@
 <h2 class="sub-title">取引ページ</h2>
+<div class="chat-main">
+</div>
+<div class="chat-form-container">
+  <%= form_with url: root_path, local: true, class: "chat-form" do |f| %>
+    <%= f.text_area :post_text, class: "chat-text-area" %>
+    <%= f.submit "送信", class: "button-orange" %>
+  <% end %>
+</div>
