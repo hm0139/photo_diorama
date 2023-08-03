@@ -1,7 +1,9 @@
 <h2 class="sub-title">断る依頼の確認</h2>
 <div class="confirmation">以下の依頼を断りますか？</div>
+
 <%= render partial: "commissions/commission", locals: {commission: @commission} %>
-<div class="commission-select-button">
+
+<div class="select-button">
   <%= link_to "はい", notification_path(@commission.notification.id), data:{turbo_method: :delete}, class: "button-orange" %>
   <%= link_to "いいえ", commission_path(@commission), class: "button-gray" %>
 </div>
