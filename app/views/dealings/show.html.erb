@@ -2,7 +2,7 @@
 <div class="chat-main">
 </div>
 <div class="chat-form-container">
-  <%= form_with url: root_path, local: true, class: "chat-form" do |f| %>
+  <%= form_with model: [@commission, @chat], local: true, class: "chat-form" do |f| %>
     <%= f.text_area :post_text, class: "chat-text-area" %>
     <%= f.submit "送信", class: "button-orange" %>
   <% end %>

@@ -15,6 +15,11 @@ class DealingsController < ApplicationController
     redirect_to commission_dealing_path(@dealing.commission.id,@dealing)
   end
 
+  def show
+    @chat = Chat.new
+    @commission = Commission.find(params[:commission_id])
+  end
+
   private
   def redirect_root
     if !user_signed_in? || current_user.kind == 0
