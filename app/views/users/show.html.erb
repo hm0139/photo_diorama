@@ -34,16 +34,26 @@
       <% end %>
     <% end %>
     <% if user_signed_in? && current_user.id == @user.id %>
+      <div class="profile-description">ここから下は御本人のみ表示されます。</div>
       <h3>取引中の依頼</h3>
-      <% if @commissions.present? %>
+      <% if @commissions.where(status: Commission.statuses[:dealing]).count > 0 %>
         <% @commissions.each do |commission| %>
-          <div><%= link_to commission.title, commission_dealing_path(commission,commission.dealing) %></div>
+          <div>
+            <%= link_to commission.title, commission_dealing_path(commission,commission.dealing) if commission.dealing? %>
+          </div>
         <% end %>
       <% else %>
         <div>現在取引中の依頼はありません。</div>
       <% end %>
+      <h3>終了した取引</h3>
+      <% if @commissions.where(status: Commission.statuses[:finished]).count > 0 %>
+        <% @commissions.each do |commission| %>
+          <div><%= link_to commission.title, commission_dealing_path(commission,commission.dealing) if commission.finished? %></div>
+        <% end %>
+      <% else %>
+        <div>完了した取引はありません。</div>
+      <% end %>
       <h3>個人情報</h3>
-      <div class="profile-description">ここから下は御本人のみ表示されます。</div>
       <div class="user-info-item">Eメール : <%= @user.email %></div>
       <div class="user-info-item">名前 : <%= @user.name %></div>
       <div class="user-info-item">名前（ヨミガナ） : <%= @user.reading_name %></div>

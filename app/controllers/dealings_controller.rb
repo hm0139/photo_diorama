@@ -1,6 +1,6 @@
 class DealingsController < ApplicationController
-  before_action :redirect_root, except: :show
-  before_action :show_redirect_root, only: :show
+  before_action :redirect_root, only: [:new, :create]
+  before_action :show_redirect_root, only: [:show, :destroy]
 
   def new
     @commission = Commission.find(params[:commission_id])
