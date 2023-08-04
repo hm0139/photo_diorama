@@ -370,6 +370,15 @@ body{
   padding: 10px 20px;
 }
 
+.profile-section{
+  margin-bottom: 60px;
+}
+
+.profile-headline{
+  border-bottom: 2px solid aqua;
+  padding-left: 10px;
+}
+
 .profile-description{
   font-size: 16px;
   font-weight: 600;
@@ -393,6 +402,23 @@ body{
 .user-upload-image{
   width: 250px;
   height: auto;
+}
+
+.profile-commission-list{
+  list-style: none;
+  padding-left: 0;
+}
+
+.profile-commission-list > li{
+  margin: 0;
+  border: 1px solid gray;
+  background-color: aquamarine;
+  padding: 10px 20px;
+}
+
+.dealing-link{
+  text-decoration: none;
+  font-weight: 600;
 }
 
 /* 検索フォーム */
