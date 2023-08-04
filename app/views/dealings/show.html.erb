@@ -3,14 +3,14 @@
   <div class="finished-message">以下の取引は終了しました</div>
 <% else %>
   <div class="dealing-finish">
-    <%= link_to "取引完了", commission_dealing_path(@commission, @commission.dealing), data:{turbo_method: :delete}, class: "button-orange" %>
+    <div class="button-orange" id="finish-button">取引完了</div>
   </div>
 <% end %>
 <div class="chat-main">
   <% if @chats.present? %>
     <%= render partial: "dealings/post", collection: @chats, as: "chat" %>
   <% else %>
-    <div class="chat-empty-message">まだ何も書き込まれていません。</div>
+    <div class="chat-empty-message">まだ何も書き込まれていません</div>
   <% end %>
 </div>
 <div class="chat-form-container">
@@ -23,4 +23,14 @@
   <% else %>
     <div class="cant-post-message">取引終了後の書き込みはできません</div>
   <% end %>
+</div>
+
+<div class="finish-confirmation" id="finish-dialog-box">
+  <div class="confirmation-message">
+    取引を終了してもよろしいですか？  
+  </div>
+  <div class="select-user-button">
+    <%= link_to "はい", commission_dealing_path(@commission, @commission.dealing), data:{turbo_method: :delete}, class: "button-orange" %>
+    <div class="button-gray" id="no-finish">いいえ</div>
+  </div>
 </div>
