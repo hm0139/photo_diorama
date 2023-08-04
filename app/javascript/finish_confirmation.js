@@ -1,7 +1,5 @@
 const finish_confirmation = () => {
   const finish_button = document.getElementById("finish-button");
-  console.log(location.pathname);
-  console.log(finish_button);
   if(finish_button == null )return;
 
   const dialog_box = document.getElementById("finish-dialog-box");
