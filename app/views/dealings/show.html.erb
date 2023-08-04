@@ -6,6 +6,7 @@
     <div class="button-orange" id="finish-button">取引完了</div>
   </div>
 <% end %>
+<div class="dealing-title"><%= @commission.title %></div>
 <div class="chat-main">
   <% if @chats.present? %>
     <%= render partial: "dealings/post", collection: @chats, as: "chat" %>
