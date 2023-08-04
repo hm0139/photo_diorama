@@ -45,6 +45,7 @@ ja:
         reward: 報酬
       chat:
         post_text: 文章
+        images: "画像"
     models:
       user: ユーザー
   devise:

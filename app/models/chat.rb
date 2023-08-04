@@ -5,12 +5,16 @@ class Chat < ApplicationRecord
 
   FILE_NUMBER_LIMIT = 3
 
-  validates :post_text, presence: true
+  validates :post_text, presence: true, unless: :was_attached?
   validate :validate_number_of_files
 
   private
   def validate_number_of_files
     return if images.length <= FILE_NUMBER_LIMIT
-    errors.add(:images, "に添付できる画像は#{FILE_NUMBER_LIMIT}件までです。")
+    errors.add(:images, "を添付できる枚数は#{FILE_NUMBER_LIMIT}枚までです。")
+  end
+
+  def was_attached?
+    self.images.attached?
   end
 end
