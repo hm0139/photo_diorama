@@ -451,10 +451,12 @@ body{
 
 .chat-form-container{
   background-color: lightcyan;
+  padding: 10px;
+  width: 100vw;
 }
 
 .chat-form{
-  width: 100vw;
+  width: 100%;
   padding: 20px 10px;
 }
 
@@ -517,3 +519,21 @@ body{
   color: gray;
   margin: 20px;
 }
+
+.finished-message{
+  text-align: center;
+  margin: 10px 0;
+  font-weight: 600;
+}
+
+.cant-post-message{
+  text-align: center;
+  margin: 10px 0;
+}
+
+.dealing-finish{
+  display: flex;
+  justify-content: end;
+  padding: 10px;
+}
+

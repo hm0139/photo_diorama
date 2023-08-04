@@ -41,5 +41,5 @@ class Commission < ApplicationRecord
     errors.add(:limit_date, "は一週間以上先のものを選択してください") if limit_date < Date.today + 7
   end
 
-  enum status:{undealt: 0, dealing: 1, dealed: 2, unsuccessful: 3}
+  enum status:{undealt: 0, dealing: 1, finished: 2, unsuccessful: 3}
 end

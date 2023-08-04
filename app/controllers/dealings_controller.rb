@@ -23,6 +23,13 @@ class DealingsController < ApplicationController
     @chats = Chat.where(dealing_id: @commission.dealing.id).includes(:user)
   end
 
+  def destroy
+    commission = Commission.find(params[:commission_id])
+    #期限日が7以内だった場合に、バリデーションに引っかかってしまうので以下のメソッドを使用してバリデーションを無視
+    commission.update_attribute(:status, Commission.statuses[:finished])
+    redirect_to commission_dealing_path(commission, commission.dealing)
+  end
+
   private
   def redirect_root
     if !user_signed_in? || current_user.kind == 0

@@ -1,4 +1,11 @@
 <h2 class="sub-title">取引ページ</h2>
+<% if @commission.finished? %>
+  <div class="finished-message">以下の取引は終了しました</div>
+<% else %>
+  <div class="dealing-finish">
+    <%= link_to "取引完了", commission_dealing_path(@commission, @commission.dealing), data:{turbo_method: :delete}, class: "button-orange" %>
+  </div>
+<% end %>
 <div class="chat-main">
   <% if @chats.present? %>
     <%= render partial: "dealings/post", collection: @chats, as: "chat" %>
@@ -7,9 +14,13 @@
   <% end %>
 </div>
 <div class="chat-form-container">
-  <%= form_with model: [@commission, @chat], local: true, class: "chat-form" do |f| %>
-    <%= render 'shared/error_messages', model: f.object %>
-    <%= f.text_area :post_text, class: "chat-text-area" %>
-    <%= f.submit "送信", class: "button-orange" %>
+  <% if @commission.dealing? %>
+    <%= form_with model: [@commission, @chat], local: true, class: "chat-form" do |f| %>
+      <%= render 'shared/error_messages', model: f.object %>
+      <%= f.text_area :post_text, class: "chat-text-area" %>
+      <%= f.submit "送信", class: "button-orange" %>
+    <% end %>
+  <% else %>
+    <div class="cant-post-message">取引終了後の書き込みはできません</div>
   <% end %>
 </div>
