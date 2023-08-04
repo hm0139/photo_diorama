@@ -19,6 +19,7 @@
     <%= form_with model: [@commission, @chat], local: true, class: "chat-form" do |f| %>
       <%= render 'shared/error_messages', model: f.object %>
       <%= f.text_area :post_text, class: "chat-text-area" %>
+      <%= f.file_field :images, multiple: true %>
       <%= f.submit "送信", class: "button-orange" %>
     <% end %>
   <% else %>

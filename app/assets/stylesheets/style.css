@@ -535,6 +535,11 @@ body{
   margin: 0;
 }
 
+.chat-image{
+  width: 200px;
+  height: auto;
+}
+
 .myself-bg-color{
   background-color: lightgreen;
 }

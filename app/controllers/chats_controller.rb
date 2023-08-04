@@ -13,6 +13,6 @@ class ChatsController < ApplicationController
   private
   def chat_params
     dealing = @commission.dealing
-    params.require(:chat).permit(:post_text).merge(user_id: current_user.id, dealing_id: dealing.id)
+    params.require(:chat).permit(:post_text, images: []).merge(user_id: current_user.id, dealing_id: dealing.id)
   end
 end

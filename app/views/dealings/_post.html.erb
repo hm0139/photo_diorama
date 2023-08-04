@@ -5,6 +5,11 @@
   <div class="post-container">
     <div class="post-content <%= current_user.id == chat.user_id ? "myself-bg-color" : "partner-bg-color" %>">
       <pre><%= chat.post_text %></pre>
+      <% if chat.images.attached? %>
+        <% chat.images.each do |image| %>
+          <%= image_tag image, class: "chat-image" %>
+        <% end %>
+      <% end %>
     </div>
     <div class="post-date"><%= l chat.created_at %></div>
   </diV>
