@@ -1,6 +1,10 @@
 <h2 class="sub-title">取引ページ</h2>
 <div class="chat-main">
-<%= render partial: "dealings/post", collection: @chats, as: "chat" %>
+  <% if @chats.present? %>
+    <%= render partial: "dealings/post", collection: @chats, as: "chat" %>
+  <% else %>
+    <div class="chat-empty-message">まだ何も書き込まれていません。</div>
+  <% end %>
 </div>
 <div class="chat-form-container">
   <%= form_with model: [@commission, @chat], local: true, class: "chat-form" do |f| %>
