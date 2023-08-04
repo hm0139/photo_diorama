@@ -23,6 +23,9 @@
   <% else %>
     <div class="cant-post-message">取引終了後の書き込みはできません</div>
   <% end %>
+  <div class="user-button-center">
+    <%= link_to "戻る", user_path(current_user), class: "button-gray" %>
+  </div>
 </div>
 
 <div class="finish-confirmation" id="finish-dialog-box">
