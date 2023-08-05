@@ -3,7 +3,8 @@ class ChatsController < ApplicationController
     @commission = Commission.find(params[:commission_id])
     @chat = Chat.new(chat_params)
     if @chat.save
-      redirect_to commission_dealing_path(@commission,@commission.dealing)
+      #redirect_to commission_dealing_path(@commission,@commission.dealing)
+      render partial: "dealings/post", locals: {chat: @chat}
     else
       @chats = Chat.where(dealing_id: @commission.dealing.id).includes(:user)
       render "dealings/show", status: :unprocessable_entity

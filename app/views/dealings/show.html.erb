@@ -1,4 +1,3 @@
-<%= include_gon %>
 <h2 class="sub-title">取引ページ</h2>
 <% if @commission.finished? %>
   <div class="finished-message">以下の取引は終了しました</div>
@@ -22,7 +21,7 @@
       <%= f.text_area :post_text, class: "chat-text-area" %>
       <label class="form-images">
         <span class="images-file">画像</span>
-        <%= f.file_field :images, multiple: true, class: "hidden" %>
+        <%= f.file_field :images, multiple: true, class: "hidden", id: "image-file" %>
       </label>
       <%= f.submit "送信", class: "button-orange" %>
       <div id="previews" style="display:none"></div>
