@@ -1,4 +1,4 @@
-const FILE_NUMBER_LIMIT = 3
+const FILE_NUMBER_LIMIT = gon.file_limit
 
 const image_preview = () => {
   const chatForm = document.querySelector(".chat-form");
