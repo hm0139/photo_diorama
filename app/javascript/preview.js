@@ -1,8 +1,8 @@
-const FILE_NUMBER_LIMIT = gon.file_limit
-
 const image_preview = () => {
   const chatForm = document.querySelector(".chat-form");
   if(!chatForm)return
+
+  const FILE_NUMBER_LIMIT = gon.file_limit
 
   const previewList = document.getElementById("previews");
   const fileField = document.querySelector('input[type="file"][name="chat[images][]"]');

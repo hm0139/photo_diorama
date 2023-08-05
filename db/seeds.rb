@@ -8,7 +8,7 @@
 
 Faker::Config.locale = :ja
 
-20.times do |n|
+10.times do |n|
   name = Gimei.name
   address = Gimei.address
   User.create!(
