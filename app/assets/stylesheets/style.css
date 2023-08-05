@@ -501,24 +501,24 @@ body{
 
 .myself{
   display: flex;
-  justify-content: start;
+  justify-content: end;
   align-items: center;
 }
 
 .partner{
   display: flex;
-  justify-content: end;
+  justify-content: start;
   align-items: center;
 }
 
 .myself-user-name{
-  margin-right: 10px;
+  margin-left: 10px;
   font-size: 10px;
   color: gray;
 }
 
 .partner-user-name{
-  margin-left: 10px;
+  margin-right: 10px;
   font-size: 10px;
   color: gray
 }

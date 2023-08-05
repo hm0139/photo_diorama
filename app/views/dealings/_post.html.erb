@@ -1,6 +1,6 @@
 <div class="<%= current_user.id == chat.user_id ? "myself" : "partner" %>">
-  <% if current_user.id == chat.user_id %>
-    <div class="myself-user-name"><%= current_user.user_name %></div>
+  <% if current_user.id != chat.user_id %>
+    <div class="partner-user-name"><%= chat.user.user_name %></div>
   <% end %>
   <div class="post-container">
     <div class="post-content <%= current_user.id == chat.user_id ? "myself-bg-color" : "partner-bg-color" %>">
@@ -13,7 +13,7 @@
     </div>
     <div class="post-date"><%= l chat.created_at %></div>
   </diV>
-  <% if current_user.id != chat.user_id %>
-    <div class="partner-user-name"><%= chat.user.user_name %></div>
+  <% if current_user.id == chat.user_id %>
+    <div class="myself-user-name"><%= current_user.user_name %></div>
   <% end %>
 </div>
