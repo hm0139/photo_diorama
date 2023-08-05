@@ -24,6 +24,7 @@
         <%= f.file_field :images, multiple: true, class: "hidden" %>
       </label>
       <%= f.submit "送信", class: "button-orange" %>
+      <div id="previews" style="display:none"></div>
     <% end %>
   <% else %>
     <div class="cant-post-message">取引終了後の書き込みはできません</div>

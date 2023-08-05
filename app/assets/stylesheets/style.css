@@ -610,3 +610,19 @@ body{
 .hidden{
   display: none;
 }
+
+#previews{
+  display: flex;
+  align-items: center;
+  background-color: #f0f0f0;
+  padding: 5px 2px;
+}
+
+.preview{
+  margin: 0 10px;
+}
+
+.preview-image{
+  width: 120px;
+  height: auto;
+}
