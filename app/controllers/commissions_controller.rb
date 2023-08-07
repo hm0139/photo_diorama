@@ -17,7 +17,7 @@ class CommissionsController < ApplicationController
       if @commission.directly
         redirect_to select_commission_path(@commission)
       else
-        redirect_to root_path
+        redirect_to commission_path(@commission)
       end
     else
       render :new, status: :unprocessable_entity
@@ -40,7 +40,7 @@ class CommissionsController < ApplicationController
     @commission.contractor_id = creator.id
     @commission.save
     Notification.create(user_id: creator.id, commission_id: @commission.id)
-    redirect_to root_path, flash: {direcly: "#{creator.user_name}さんに依頼しました"}
+    redirect_to commission_path(@commission), flash: {direcly: "#{creator.user_name}さんに依頼しました"}
   end
 
   def unsuccessful
@@ -60,7 +60,7 @@ class CommissionsController < ApplicationController
 
   def direct_commission
     @commission = Commission.find(params[:id])
-    if @commission.directly && (!user_signed_in? || @commission.contractor_id != current_user.id)
+    if @commission.directly && (!user_signed_in? || @commission.contractor_id != current_user.id && @commission.user_id != current_user.id)
       redirect_to root_path
     end
   end
