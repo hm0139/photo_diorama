@@ -5,50 +5,78 @@
     <div class="user-info-item">ユーザ名 : <%= @user.user_name %></div>
     <div class="user-info-item">現在ランク : <%= @user.rank %></div>
     <% if @user.kind == 1 %>
-      <h3><%= @user.user_name %>さんの実績</h3>
-      <% if @achievement %>
-        <div class="user-info-item">今までに受けた依頼数 : <%= @achievement.commission_count %></div>
-        <div class="user-info-item">
-          <div class="user-sub-title">今までの実績</div>
-          <%= @achievement.achievement_text %>
-        </div>
-        <div class="user-info-item">
-          <div class="user-sub-title">実績紹介</div>
-          <%= @achievement.text %>
-        </div>
-        <% if @achievement.images.attached? %>
-          <div class="profile-images">
-          <% @achievement.images.each do |image| %>
-            <div class="profile-image"><%= image_tag image, class: "user-upload-image" %></div>
-          <% end %>
+      <div class="profile-section">
+        <h3 class="profile-headline"><%= @user.user_name %>さんの実績</h3>
+        <% if @achievement %>
+          <div class="user-info-item">今までに受けた依頼数 : <%= @achievement.commission_count %></div>
+          <div class="user-info-item">
+            <div class="user-sub-title">今までの実績</div>
+            <%= @achievement.achievement_text %>
           </div>
+          <div class="user-info-item">
+            <div class="user-sub-title">実績紹介</div>
+            <%= @achievement.text %>
+          </div>
+          <% if @achievement.images.attached? %>
+            <div class="profile-images">
+            <% @achievement.images.each do |image| %>
+              <div class="profile-image"><%= image_tag image, class: "user-upload-image" %></div>
+            <% end %>
+            </div>
+          <% end %>
+          <% if user_signed_in? && current_user.id == @user.id %>
+            <div><%= link_to "プロフィールを編集する", edit_user_achievement_path(@user,@achievement) %></div>
+          <% end %>
+        <% else %>
+          <div>まだプロフィールが設定されていません</div>
+          <% if user_signed_in? && current_user.id == @user.id %>
+            <div><%= link_to "プロフィールを設定する", new_user_achievement_path(@user) %></div>
+          <% end %>
         <% end %>
-        <% if user_signed_in? && current_user.id == @user.id %>
-          <div><%= link_to "プロフィールを編集する", edit_user_achievement_path(@user,@achievement) %></div>
-        <% end %>
-      <% else %>
-        <div>まだプロフィールが設定されていません</div>
-        <% if user_signed_in? && current_user.id == @user.id %>
-          <div><%= link_to "プロフィールを設定する", new_user_achievement_path(@user) %></div>
-        <% end %>
-      <% end %>
+      </div>
     <% end %>
     <% if user_signed_in? && current_user.id == @user.id %>
-      <h3>個人情報</h3>
       <div class="profile-description">ここから下は御本人のみ表示されます。</div>
-      <div class="user-info-item">Eメール : <%= @user.email %></div>
-      <div class="user-info-item">名前 : <%= @user.name %></div>
-      <div class="user-info-item">名前（ヨミガナ） : <%= @user.reading_name %></div>
-      <div class="user-info-item">郵便番号 : <%= @user.postal_code %></div>
-      <div class="user-info-item">都道府県 : <%= Prefecture.data[@user.prefectures.to_i][:name] %></div>
-      <div class="user-info-item">市区町村 : <%= @user.city %></div>
-      <div class="user-info-item">マンション・建物名 : <%= @user.building_name %></div>
-      <div class="user-info-item">金融機関名 : <%= @user.financial_institution %></div>
-      <div class="user-info-item">支店名 : <%= @user.branch %></div>
-      <% deposit = ["", "普通" ,"定期", "当座"] %>
-      <div class="user-info-item">預金種目 : <%= deposit[@user.deposit.to_i] %></div>
-      <div class="user-info-item">口座番号 : <%= @user.account_number %></div>
-      <div class="user-info-item">口座名義 : <%= @user.account_holder %></div>
+      <div class="profile-section">
+        <h3 class="profile-headline">取引中の依頼</h3>
+        <% if @commissions_dealing.present? %>
+          <ul class="profile-commission-list">
+          <% @commissions_dealing.each do |commission| %>
+            <li><%= link_to commission.title, commission_dealing_path(commission,commission.dealing), class: "dealing-link" %></li>
+          <% end %>
+          </ul>
+        <% else %>
+          <div>現在取引中の依頼はありません。</div>
+        <% end %>
+      </div>
+      <div class="profile-section">
+        <h3 class="profile-headline">終了した取引</h3>
+        <% if @commissions_finished.present? %>
+          <ul class="profile-commission-list">
+          <% @commissions_finished.each do |commission| %>
+            <li><%= link_to commission.title, commission_dealing_path(commission,commission.dealing), class: "dealing-link" %></li>
+          <% end %>
+          </ul>
+        <% else %>
+          <div>完了した取引はありません。</div>
+        <% end %>
+      </div>
+      <div class="profile-section">
+        <h3 class="profile-headline">個人情報</h3>
+        <div class="user-info-item">Eメール : <%= @user.email %></div>
+        <div class="user-info-item">名前 : <%= @user.name %></div>
+        <div class="user-info-item">名前（ヨミガナ） : <%= @user.reading_name %></div>
+        <div class="user-info-item">郵便番号 : <%= @user.postal_code %></div>
+        <div class="user-info-item">都道府県 : <%= Prefecture.data[@user.prefectures.to_i][:name] %></div>
+        <div class="user-info-item">市区町村 : <%= @user.city %></div>
+        <div class="user-info-item">マンション・建物名 : <%= @user.building_name %></div>
+        <div class="user-info-item">金融機関名 : <%= @user.financial_institution %></div>
+        <div class="user-info-item">支店名 : <%= @user.branch %></div>
+        <% deposit = ["", "普通" ,"定期", "当座"] %>
+        <div class="user-info-item">預金種目 : <%= deposit[@user.deposit.to_i] %></div>
+        <div class="user-info-item">口座番号 : <%= @user.account_number %></div>
+        <div class="user-info-item">口座名義 : <%= @user.account_holder %></div>
+      </div>
     <% end %>
   </div>
 </div>

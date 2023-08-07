@@ -23,6 +23,7 @@ body{
   text-decoration: none;
   background-color: orange;
   color: white;
+  cursor: pointer;
 }
 
 .button-gray{
@@ -30,6 +31,7 @@ body{
   text-decoration: none;
   background-color: gray;
   color: white;
+  cursor: pointer;
 }
 
 .user-button-center{
@@ -368,6 +370,15 @@ body{
   padding: 10px 20px;
 }
 
+.profile-section{
+  margin-bottom: 60px;
+}
+
+.profile-headline{
+  border-bottom: 2px solid aqua;
+  padding-left: 10px;
+}
+
 .profile-description{
   font-size: 16px;
   font-weight: 600;
@@ -391,6 +402,23 @@ body{
 .user-upload-image{
   width: 250px;
   height: auto;
+}
+
+.profile-commission-list{
+  list-style: none;
+  padding-left: 0;
+}
+
+.profile-commission-list > li{
+  margin: 0;
+  border: 1px solid gray;
+  background-color: aquamarine;
+  padding: 10px 20px;
+}
+
+.dealing-link{
+  text-decoration: none;
+  font-weight: 600;
 }
 
 /* 検索フォーム */
@@ -437,4 +465,164 @@ body{
   text-align: center;
   font-size: 16px;
   font-weight: 600;
+}
+
+/* 取引ページ */
+.dealing-title{
+  margin: 10px 20px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.chat-main{
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+  padding: 10px 30px;
+  margin-bottom: 20px;
+  height: 60vh;
+  overflow: scroll;
+}
+
+.chat-form-container{
+  background-color: lightcyan;
+  padding: 10px;
+  width: 100vw;
+}
+
+.chat-form{
+  width: 100%;
+  padding: 20px 10px;
+}
+
+.chat-text-area{
+  width: 100%;
+  height: 140px;
+}
+
+.myself{
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.partner{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.myself-user-name{
+  margin-left: 10px;
+  font-size: 10px;
+  color: gray;
+}
+
+.partner-user-name{
+  margin-right: 10px;
+  font-size: 10px;
+  color: gray
+}
+
+.post-content{
+  border: 1px solid gray;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 15px 0 5px;
+  font-size: 15px;
+}
+
+.post-content > pre{
+  margin: 0;
+}
+
+.chat-image{
+  width: 200px;
+  height: auto;
+}
+
+.myself-bg-color{
+  background-color: lightgreen;
+}
+
+.partner-bg-color{
+  background-color: lightskyblue;
+}
+
+.post-date{
+  font-size: 10px;
+}
+
+.chat-empty-message{
+  text-align: center;
+  font-size: 20px;
+  color: gray;
+  margin: 20px;
+}
+
+.finished-message{
+  text-align: center;
+  margin: 10px 0;
+  font-weight: 600;
+}
+
+.cant-post-message{
+  text-align: center;
+  margin: 10px 0;
+}
+
+.dealing-finish{
+  display: flex;
+  justify-content: end;
+  padding: 10px;
+}
+
+.finish-confirmation{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 140px;
+  border: 1px solid cyan;
+  padding: 15px;
+  text-align: center;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 5px 5px 10px 2px rgba(128, 128, 128, 0.5);
+  background-color: white;
+  display: none;
+}
+
+.select-user-button{
+  display: flex;
+  justify-content: space-around;
+}
+
+.form-images{
+  background-color: lightblue;
+  color: white;
+  padding: 5px 20px;
+  margin: 5px 10px;
+  text-align: center;
+  display: inline-block;
+}
+
+.hidden{
+  display: none;
+}
+
+#previews{
+  display: flex;
+  align-items: center;
+  background-color: #f0f0f0;
+  padding: 5px 2px;
+}
+
+.preview{
+  margin: 0 10px;
+}
+
+.preview-image{
+  width: 120px;
+  height: auto;
 }

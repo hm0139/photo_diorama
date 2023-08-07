@@ -83,3 +83,5 @@ gem "image_processing", "~> 1.2"
 gem "aws-sdk-s3", require: false
 gem "gimei"
 gem "faker"
+gem "rails-i18n"
+gem "gon"

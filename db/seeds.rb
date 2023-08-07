@@ -8,7 +8,7 @@
 
 Faker::Config.locale = :ja
 
-20.times do |n|
+10.times do |n|
   name = Gimei.name
   address = Gimei.address
   User.create!(
@@ -31,13 +31,15 @@ Faker::Config.locale = :ja
   )
 end
 
+n = 1
 User.all.each do |user|
   next if user.kind == 1
   user.commissions.create!(
-    title: Faker::Lorem.paragraph,
+    title: "テスト#{n}_#{Faker::Lorem.sentence}",
     description: Faker::Lorem.sentence,
-    limit_date: Date.today + 7,
-    reward: Faker::Number.between(from: 5000, to: 1000000),
+    limit_date: Date.today + Faker::Number.between(from: 7, to: 60),
+    reward: Faker::Number.between(from: 5, to: 1000) * 1000,
     directly: false
   )
+  n += 1
 end

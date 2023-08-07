@@ -11,7 +11,8 @@ Rails.application.routes.draw do
     collection do
       get "search"
     end
-    resources :dealings, only:[:new, :create, :show]
+    resources :dealings, only:[:new, :create, :show, :destroy]
+    resources :chats, only:[:create]
   end
 
   resources :notifications, only:[:index, :destroy]

@@ -1,1 +1,45 @@
 <h2 class="sub-title">取引ページ</h2>
+<% if @commission.finished? %>
+  <div class="finished-message">以下の取引は終了しました</div>
+<% else %>
+  <div class="dealing-finish">
+    <div class="button-orange" id="finish-button">取引完了</div>
+  </div>
+<% end %>
+<div class="dealing-title"><%= @commission.title %></div>
+<div class="chat-main">
+  <% if @chats.present? %>
+    <%= render partial: "dealings/post", collection: @chats, as: "chat" %>
+  <% else %>
+    <div class="chat-empty-message">まだ何も書き込まれていません</div>
+  <% end %>
+</div>
+<div class="chat-form-container">
+  <% if @commission.dealing? %>
+    <%= form_with model: [@commission, @chat], local: true, class: "chat-form" do |f| %>
+      <%= render 'shared/error_messages', model: f.object %>
+      <%= f.text_area :post_text, class: "chat-text-area" %>
+      <label class="form-images">
+        <span class="images-file">画像</span>
+        <%= f.file_field :images, multiple: true, class: "hidden", id: "image-file" %>
+      </label>
+      <%= f.submit "送信", class: "button-orange" %>
+      <div id="previews" style="display:none"></div>
+    <% end %>
+  <% else %>
+    <div class="cant-post-message">取引終了後の書き込みはできません</div>
+  <% end %>
+  <div class="user-button-center">
+    <%= link_to "戻る", user_path(current_user), class: "button-gray" %>
+  </div>
+</div>
+
+<div class="finish-confirmation" id="finish-dialog-box">
+  <div class="confirmation-message">
+    取引を終了してもよろしいですか？  
+  </div>
+  <div class="select-user-button">
+    <%= link_to "はい", commission_dealing_path(@commission, @commission.dealing), data:{turbo_method: :delete}, class: "button-orange" %>
+    <div class="button-gray" id="no-finish">いいえ</div>
+  </div>
+</div>

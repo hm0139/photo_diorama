@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :notifications
   has_many :dealings
   has_one :achievement
+  has_many :chats
 
   with_options presence: true do
     validates :user_name
