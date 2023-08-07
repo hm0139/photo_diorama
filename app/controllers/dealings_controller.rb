@@ -20,7 +20,7 @@ class DealingsController < ApplicationController
 
   def show
     @chat = Chat.new
-    @chats = Chat.where(dealing_id: @commission.dealing.id).includes(:user)
+    @chats = Chat.where(dealing_id: @commission.dealing.id).includes(:user).with_attached_images
     gon.file_limit = Chat::FILE_NUMBER_LIMIT
   end
 

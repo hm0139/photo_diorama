@@ -18,6 +18,7 @@ const chat_post = () => {
       if(emptyMessage)emptyMessage.remove();
 
       const postArea = document.querySelector(".chat-main");
+      postArea.innerHTML = ""; // 暫定処理
       postArea.insertAdjacentHTML("beforeend", XHR.response);
       const text = document.querySelector(".chat-text-area");
       text.value = "";
