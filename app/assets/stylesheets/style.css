@@ -452,10 +452,11 @@ body{
 }
 
 .profile-commission-list > li{
-  margin: 0;
+  margin: 5px 0;
   border: 1px solid gray;
   background-image: linear-gradient(180deg, rgb(244, 230, 219), rgb(255, 162, 90));
   cursor: pointer;
+  height: 50px;
 }
 
 .profile-commission-list > li:hover{
