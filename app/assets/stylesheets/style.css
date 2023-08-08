@@ -6,6 +6,8 @@
 body{
   margin: 0;
   padding: 0;
+  background-image: linear-gradient(180deg, rgba(244, 230, 219, 1) 70%, rgba(246, 181, 137, 1));
+  font-family: -apple-system, BlinkMacSystemFont;
 }
 
 .sub-title{
@@ -70,7 +72,7 @@ body{
 .site-header{
   display: flex;
   justify-content: space-between;
-  background-color: aquamarine;
+  background-color: #f4e6db;
   align-items: center;
   padding: 10px 20px;
 }
@@ -87,14 +89,22 @@ body{
 
 .header-button{
   text-decoration: none;
-  border: 1px solid #0078ff;
+  border: 1px solid #834222;
   width: 100px;
   height: 30px;
   text-align: center;
   line-height: 30px;
   margin-left: 20px;
-  background-color: #00ffff;
-  color: #008080;
+  background-color: #f88639;
+  color: white;
+}
+
+.header-button:hover{
+  background-color: #f8bd95;
+}
+
+.header-button:active{
+  background-color: #f06d16;
 }
 
 .notification{
@@ -125,9 +135,14 @@ body{
 .site-description-opacity{
   width: 100%;
   padding: 60px 10px;
-  background-color: rgba(0, 0, 0 ,0.3);
+  background-image: linear-gradient(308deg, rgba(248, 134, 57, 0.5), rgba(240, 230, 230, 0.5) 56%);
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.site-sentence{
+  margin: 20px 0;
 }
 
 .highlight{
@@ -140,7 +155,7 @@ body{
 
 .request-index-title{
   text-align: center;
-  background-color: aquamarine;
+  background-image: linear-gradient(90deg, rgba(244, 230, 219, 1), rgba(248, 134, 57, 1) 50%, rgba(244, 230, 219, 1));
 }
 
 .requests{
@@ -159,6 +174,8 @@ body{
   justify-content: space-between;
   padding: 5px 10px;
   margin-bottom: 20px;
+  background-color: #eec9ac;
+  box-shadow: 3px 3px 8px 2px rgba(128, 128, 128, 0.4);
 }
 
 .user-name{
