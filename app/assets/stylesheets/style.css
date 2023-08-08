@@ -452,6 +452,10 @@ body{
   background-color: #eec9ac;
 }
 
+.commission-select{
+  font-size: 12px;
+}
+
 /* 取引確認 */
 .confirmation{
   text-align: center;

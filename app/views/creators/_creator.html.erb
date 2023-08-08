@@ -1,9 +1,8 @@
 <div class="create-item">
   <div class="create-name"><%= link_to creator.user_name, user_path(creator) %></div>
-  <div class="commission-select">
-    <%= link_to "このユーザのプロフィールを見る", user_path(creator), class: "button-orange" %>
-    <% if @commission %>
+  <% if @commission %>
+    <div class="commission-select">
       <%= link_to "このユーザに依頼する", selected_confirmation_commission_path(@commission, user_id: creator.id), class: "button-orange" %>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>
