@@ -9,12 +9,12 @@
       <%= f.label :text, "今までの制作物" %>
       <%= f.text_area :text, class: "input-text" %>
     </div>
-    <div>
+    <div class="input-item">
       <%= f.label :images, "制作物の画像" %><br>
       <%= f.file_field :images, multiple: true %>
     </div>
-    <div class="input-item">
-      <%= f.submit "送信" %>
+    <div class="input-item form-button-center">
+      <%= f.submit "送信", class: "button-orange" %>
     </div>
   <% end %>
 </div>

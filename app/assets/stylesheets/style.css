@@ -69,6 +69,11 @@ body{
   margin-bottom: 30px;
 }
 
+.form-button-center{
+  display: flex;
+  justify-content: center;
+}
+
 /* サイトヘッダ */
 .site-header{
   display: flex;
@@ -426,6 +431,12 @@ body{
   font-weight: 600;
 }
 
+.user-description{
+  border: 1px solid gray;
+  background-color: #f5ebd9;
+  padding: 10px;
+}
+
 .user-info-item{
   margin: 10px 0;
 }
@@ -433,6 +444,8 @@ body{
 .user-sub-title{
   font-size: 18px;
   font-weight: 600;
+  margin-top: 15px;
+  margin-bottom: 10px;
 }
 
 .profile-images{

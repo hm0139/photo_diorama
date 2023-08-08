@@ -11,13 +11,14 @@
           <div class="user-info-item">今までに受けた依頼数 : <%= @achievement.commission_count %></div>
           <div class="user-info-item">
             <div class="user-sub-title">今までの実績</div>
-            <%= @achievement.achievement_text %>
+            <div class="user-description"><%= @achievement.achievement_text %></diV>
           </div>
           <div class="user-info-item">
             <div class="user-sub-title">実績紹介</div>
-            <%= @achievement.text %>
+            <div class="user-description"><%= @achievement.text %></diV>
           </div>
           <% if @achievement.images.attached? %>
+            <div class="user-sub-title">画像</div>
             <div class="profile-images">
             <% @achievement.images.each do |image| %>
               <div class="profile-image"><%= image_tag image, class: "user-upload-image" %></div>
