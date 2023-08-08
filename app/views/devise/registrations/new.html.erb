@@ -4,7 +4,7 @@
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
-    <h3>ユーザ情報</h3>
+    <h3 class="form-title">ユーザ情報</h3>
     <div class="input-item">
       <%= f.label :user_name, "ユーザ名" %><span class="note">(必須)</span><br />
       <%= f.text_field :user_name, autofocus: true, autocomplete: "user_name", class: "input-user-text" %>
@@ -38,7 +38,12 @@
       <%= f.text_field :reading_name, autocomplete: "reading_name", class: "input-user-text" %>
     </div>
 
-    <h3>住所</h3>
+    <div class="input-item">
+      <%= f.label :kind, "ユーザタイプ" %><br>
+      <%= f.select(:kind, {"依頼者" => 0, "制作者" => 1}, {}, {class: "select-box"}) %>
+    </div>
+
+    <h3 class="form-title">住所</h3>
     <div class="input-item">
       <%= f.label :postal_code, "郵便番号" %><span class="note">(必須)</span><br>
       <%= f.text_field :postal_code, autocomplete: "postal_code", class: "input-user-text" %>
@@ -60,13 +65,10 @@
       <%= f.text_field :building_name, autocomplete: "buiding_name", class: "input-user-text" %>
     </div>
 
-    <div calss="input-item">
-      <%= f.label :kind, "ユーザタイプ" %><br>
-      <%= f.select(:kind, {"依頼者" => 0, "制作者" => 1}, {}, {class: "select-box"}) %>
+    <h3 class="form-title">口座情報</h3>
+    <div class="form-description">
+      <div class="note">以下は依頼を受ける予定の方のみ必須です</div>
     </div>
-
-    <h3>口座情報</h3>
-    <div class="note">以下は依頼を受ける予定の方のみ必須です</div>
     <div class="input-item">
       <%= f.label :financial_institution, "金融機関名" %><br>
       <%= f.text_field :financial_institution, autocomplete: "financial_institution", class: "input-user-text" %>
@@ -96,7 +98,4 @@
       <%= f.submit "新規登録", class: "button-orange" %>
     </div>
   <% end %>
-  <div class="user-links">
-    <%= render "devise/shared/links" %>
-  </div>
 </div>
