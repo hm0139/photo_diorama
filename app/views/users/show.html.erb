@@ -26,12 +26,12 @@
             </div>
           <% end %>
           <% if user_signed_in? && current_user.id == @user.id %>
-            <div><%= link_to "プロフィールを編集する", edit_user_achievement_path(@user,@achievement) %></div>
+            <div><%= link_to "実績を編集する", edit_user_achievement_path(@user,@achievement) %></div>
           <% end %>
         <% else %>
-          <div>まだプロフィールが設定されていません</div>
+          <div>まだ実績が設定されていません</div>
           <% if user_signed_in? && current_user.id == @user.id %>
-            <div><%= link_to "プロフィールを設定する", new_user_achievement_path(@user) %></div>
+            <div><%= link_to "実績を設定する", new_user_achievement_path(@user) %></div>
           <% end %>
         <% end %>
       </div>
