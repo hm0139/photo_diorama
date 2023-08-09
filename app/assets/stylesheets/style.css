@@ -334,13 +334,18 @@ body{
   padding: 5px 10px;
 }
 
-.input-user-text-short{
-  width: 100px;
-  padding: 2px 5px;
-}
-
 .select-box{
   padding: 5px 10px;
+}
+
+@media screen and (max-width: 428px) {
+  .input-user-text{
+    font-size: 16px;
+  }
+
+  .select-box{
+    font-size: 16px;
+  }
 }
 
 .new-user-button{
@@ -379,6 +384,12 @@ body{
 .input-text{
   width: 90%;
   height: 150px;
+}
+
+@media screen and (max-width: 428px) {
+  .input-text{
+    font-size: 16px;
+  }  
 }
 
 /* 依頼詳細画面 */
