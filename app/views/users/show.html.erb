@@ -63,6 +63,30 @@
         <% end %>
       </div>
       <div class="profile-section">
+        <h3 class="profile-headline">取引待ちの依頼</h3>
+        <% if @commissions_waiting.present? %>
+          <ul class="profile-commission-list">
+            <% @commissions_waiting.each do |commission| %>
+              <li><%= link_to commission.title, commission_path(commission), class: "dealing-link" %></li>
+            <% end %>
+          </ul>
+        <% else %>
+          <div>取引待ちの依頼はありません。</div>
+        <% end %>
+      </div>
+      <div class="profile-section">
+        <h3 class="profile-headline">不成立となった依頼</h3>
+        <% if @commissions_unsuccessful.present? %>
+          <ul class="profile-commission-list">
+            <% @commissions_unsuccessful.each do |commission| %>
+              <li><%= link_to commission.title, commission_path(commission), class: "dealing-link" %></li>
+            <% end %>
+          </ul>
+        <% else %>
+          <div>不成立となった依頼はありません。</div>
+        <% end %>
+      </div>
+      <div class="profile-section">
         <h3 class="profile-headline">個人情報</h3>
         <div class="user-info-item">Eメール : <%= @user.email %></div>
         <div class="user-info-item">名前 : <%= @user.name %></div>
