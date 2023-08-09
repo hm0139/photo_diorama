@@ -33,6 +33,7 @@ class AchievementsController < ApplicationController
   end
 
   def redirect_profile
+    gon.file_limit = Achievement::FILE_NUMBER_LIMIT
     @user = User.find(params[:user_id])
     unless user_signed_in? && current_user.id == @user.id && @user.kind == 1
       redirect_to user_path(@user)

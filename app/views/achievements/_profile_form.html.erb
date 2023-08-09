@@ -10,8 +10,12 @@
       <%= f.text_area :text, class: "input-text" %>
     </div>
     <div class="input-item">
-      <%= f.label :images, "制作物の画像" %><br>
-      <%= f.file_field :images, multiple: true %>
+      <div>制作物の画像</div>
+      <div id="previews" style="display:none"></div>
+      <label class="form-images">
+        <span class="images-file">画像</span>
+        <%= f.file_field :images, multiple: true, class: "hidden", id: "image-file" %>
+      </label>
     </div>
     <div class="input-item form-button-center">
       <%= f.submit "送信", class: "button-orange" %>
