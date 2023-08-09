@@ -1,13 +1,17 @@
 class AchievementsController < ApplicationController
-  before_action :redirect_profile, only:[:new, :edit]
+  before_action :redirect_profile
 
   def new
     @achievement = Achievement.new
   end
 
   def create
-    achievement = Achievement.create(achievement_params)
-    redirect_to user_path(achievement.user)
+    @achievement = Achievement.new(achievement_params)
+    if @achievement.save
+      redirect_to user_path(@achievement.user)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit
@@ -15,9 +19,12 @@ class AchievementsController < ApplicationController
   end
 
   def update
-    achievement = Achievement.find(params[:id])
-    achievement.update(achievement_params)
-    redirect_to user_path(achievement.user)
+    @achievement = Achievement.find(params[:id])
+    if @achievement.update(achievement_params)
+      redirect_to user_path(@achievement.user)
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   private

@@ -48,6 +48,10 @@ ja:
       chat:
         post_text: 文章
         images: "画像"
+      achievement:
+        achievement_text: "実績"
+        text: "過去の制作物"
+        images: "画像"
     models:
       user: ユーザー
   devise:
