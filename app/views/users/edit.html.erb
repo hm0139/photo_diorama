@@ -1,0 +1,88 @@
+<h2 class="sub-title">ユーザ情報の編集</h2>
+
+<div class="user-form-container">
+  <%= form_with model: @user, local: true, class: "edit_user" do |f| %>
+    <%= render 'shared/error_messages', model: f.object %>
+
+    <h3 class="form-title">ユーザ情報</h3>
+    <div class="input-item">
+      <%= f.label :user_name, "ユーザ名" %><span class="note">(必須)</span><br />
+      <%= f.text_field :user_name, autofocus: true, autocomplete: "user_name", class: "input-user-text" %>
+    </div>
+
+    <div class="input-item">
+      <%= f.label :email, "Eメール" %><span class="note">(必須)</span><br />
+      <%= f.email_field :email, autocomplete: "email", class: "input-user-text" %>
+    </div>
+
+    <div class="input-item">
+      <%= f.label :name, "氏名" %><span class="note">(必須)</span><br />
+      <%= f.text_field :name, autocomplete: "name", class: "input-user-text" %>
+    </div>
+
+    <div class="input-item">
+      <%= f.label :reading_name, "氏名（ヨミガナ）" %><span class="note">(必須)</span><br />
+      <%= f.text_field :reading_name, autocomplete: "reading_name", class: "input-user-text" %>
+    </div>
+
+    <div class="input-item">
+      <%= f.label :kind, "ユーザタイプ" %><br>
+      <%= f.select(:kind, {"依頼者" => 0, "制作者" => 1}, {}, {class: "select-box"}) %>
+    </div>
+
+    <h3 class="form-title">住所</h3>
+    <div class="input-item">
+      <%= f.label :postal_code, "郵便番号" %><span class="note">(必須)</span><br>
+      <%= f.text_field :postal_code, autocomplete: "postal_code", class: "input-user-text" %>
+      <div class="note">郵便番号は123-4567の形式で入力してください</div>
+    </div>
+
+    <div class="input-item">
+      <%= f.label :prefectures, "都道府県" %><span class="note">(必須)</span><br>
+      <%= f.collection_select(:prefectures, Prefecture.all, :id, :name, {}, {class:"select-box", id:"prefecture"}) %>
+    </div>
+
+    <div class="input-item">
+      <%= f.label :city, "市区町村" %><span class="note">(必須)</span><br>
+      <%= f.text_field :city, autocomplete: "city", class: "input-user-text" %>
+    </div>
+
+    <div class="input-item">
+      <%= f.label :building_name, "マンション・ビル名" %><br>
+      <%= f.text_field :building_name, autocomplete: "buiding_name", class: "input-user-text" %>
+    </div>
+
+    <h3 class="form-title">口座情報</h3>
+    <div class="form-description">
+      <div class="note">以下は依頼を受ける予定の方のみ必須です</div>
+    </div>
+    <div class="input-item">
+      <%= f.label :financial_institution, "金融機関名" %><br>
+      <%= f.text_field :financial_institution, autocomplete: "financial_institution", class: "input-user-text" %>
+    </div>
+
+    <div class="input-item">
+      <%= f.label :branch, "支店名" %><br>
+      <%= f.text_field :branch, autocomplete: "branch", class: "input-user-text" %>
+    </div>
+
+    <div class="input-item">
+      <%= f.label :deposit, "預金種目" %><br>
+      <%= f.select(:deposit, {"---" => 0, "普通" => 1, "定期" => 2, "当座" => 3}, {}, {class:"select-box"}) %>
+    </div>
+
+    <div class="input-item">
+      <%= f.label :account_number, "口座番号" %><br>
+      <%= f.text_field :account_number, autocomplete: "account_number", class: "input-user-text" %>
+    </div>
+
+    <div class="input-item">
+      <%= f.label :account_holder, "口座名義" %><br>
+      <%= f.text_field :account_holder, autocomplete: "account_holder", class: "input-user-text" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "新規登録", class: "button-orange" %>
+    </div>
+  <% end %>
+</div>

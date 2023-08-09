@@ -102,6 +102,7 @@
         <div class="user-info-item">口座番号 : <%= @user.account_number %></div>
         <div class="user-info-item">口座名義 : <%= @user.account_holder %></div>
       </div>
+      <%= link_to "ユーザ情報を編集する", edit_user_path(@user) %>
     <% end %>
   </div>
 </div>

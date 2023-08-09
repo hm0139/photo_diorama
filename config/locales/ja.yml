@@ -12,6 +12,8 @@ ja:
         postal_code: 郵便番号
         prefectures: 都道府県
         city: 市区町村
+        financial_institution: "金融機関名"
+        branch: "支店名"
         account_number: 口座番号
         account_holder: 口座名義
         deposit: 預金種目
