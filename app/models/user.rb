@@ -20,10 +20,13 @@ class User < ApplicationRecord
     validates :kind, inclusion: [0,1]
   end
 
-  #注 : 以下のバリデーションは空白を許可
-  validates :deposit, numericality: true
-  validates :account_number, format: {with: /\A\d{4,7}\z|\A\z/ , message: "は正しく入力してください"}
-  validates :account_holder, format: {with: /\A[ァ-ヴー]+\z|\A\z/, message: "は全角カタカナで記入してください"}
+  with_options presence: true, if: :is_creator? do |user|
+    user.validates :financial_institution
+    user.validates :branch
+    user.validates :deposit, numericality: {other_then: 0}
+    user.validates :account_number, format: {with: /\A\d{4,7}\z/ , message: "は正しく入力してください"}
+    user.validates :account_holder, format: {with: /\A[ァ-ヴー]+\z/, message: "は全角カタカナで記入してください"}
+  end
 
   def self.search(user_name)
     if user_name != ""
@@ -31,6 +34,10 @@ class User < ApplicationRecord
     else
       User.where(kind: 1)
     end
+  end
+
+  def is_creator?
+    return kind == 1
   end
   #enum kind: {requester: 0, creator: 1}
 end

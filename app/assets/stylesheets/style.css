@@ -299,7 +299,7 @@ body{
   margin-bottom: 30px;
 }
 
-.new_user{
+.new_user,.edit_user{
   width: 70vw;
   display: flex;
   flex-direction: column;
@@ -334,13 +334,18 @@ body{
   padding: 5px 10px;
 }
 
-.input-user-text-short{
-  width: 100px;
-  padding: 2px 5px;
-}
-
 .select-box{
   padding: 5px 10px;
+}
+
+@media screen and (max-width: 428px) {
+  .input-user-text{
+    font-size: 16px;
+  }
+
+  .select-box{
+    font-size: 16px;
+  }
 }
 
 .new-user-button{
@@ -379,6 +384,12 @@ body{
 .input-text{
   width: 90%;
   height: 150px;
+}
+
+@media screen and (max-width: 428px) {
+  .input-text{
+    font-size: 16px;
+  }  
 }
 
 /* 依頼詳細画面 */
@@ -523,8 +534,31 @@ body{
 
 .profile-images{
   display: flex;
-  justify-content: space-around;
   overflow: scroll;
+  border: 1px solid orange;
+  background-color: #caab9c;
+  padding: 10px 5px;
+}
+
+@media  screen and (min-width: 429px) {
+  .profile-image{
+    margin: 0 5px;
+  }
+}
+
+@media screen and (max-width: 428px){
+  .profile-images{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-image{
+    margin: 5px 0;
+  }
+}
+
+.achievement_link{
+  margin: 10px;
 }
 
 .user-upload-image{
@@ -589,6 +623,7 @@ body{
   width: 100%;
   margin-right: 10px;
   padding: 5px 10px;
+  font-size: 16px;
 }
 
 .search-button{
@@ -598,6 +633,7 @@ body{
 .input-number{
   width: 60px;
   padding: 5px 10px;
+  font-size: 16px;
 }
 
 .search-button-container{
@@ -642,6 +678,7 @@ body{
 .chat-text-area{
   width: 100%;
   height: 140px;
+  font-size: 16px;
 }
 
 .myself{
@@ -761,6 +798,7 @@ body{
   align-items: center;
   background-color: #f0f0f0;
   padding: 5px 2px;
+  overflow: scroll;
 }
 
 .preview{

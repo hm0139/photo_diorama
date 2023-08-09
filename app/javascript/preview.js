@@ -1,13 +1,12 @@
 const image_preview = () => {
-  const chatForm = document.querySelector(".chat-form");
-  if(!chatForm)return
+  const imageFiles = document.getElementById("image-file");
+  if(!imageFiles)return
 
   const FILE_NUMBER_LIMIT = gon.file_limit
 
   const previewList = document.getElementById("previews");
-  const fileField = document.querySelector('input[type="file"][name="chat[images][]"]');
   // input要素で値の変化が起きた際に呼び出される関数
-  fileField.addEventListener("change", function(e){
+  imageFiles.addEventListener("change", function(e){
     const alreadyPreviews = document.querySelectorAll(".preview");
     if (alreadyPreviews) {
       alreadyPreviews.forEach((alreadyPreview) => {
@@ -17,7 +16,7 @@ const image_preview = () => {
 
     if(e.target.files.length > FILE_NUMBER_LIMIT){
       alert(`一度に投稿できる画像は${FILE_NUMBER_LIMIT}枚までです。`);
-      fileField.value = "";
+      imageFiles.value = "";
     }
 
     if(e.target.files.length > 0){

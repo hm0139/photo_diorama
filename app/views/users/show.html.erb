@@ -26,12 +26,12 @@
             </div>
           <% end %>
           <% if user_signed_in? && current_user.id == @user.id %>
-            <div><%= link_to "実績を編集する", edit_user_achievement_path(@user,@achievement) %></div>
+            <div class="achievement_link"><%= link_to "実績を編集する", edit_user_achievement_path(@user,@achievement) %></div>
           <% end %>
         <% else %>
           <div>まだ実績が設定されていません</div>
           <% if user_signed_in? && current_user.id == @user.id %>
-            <div><%= link_to "実績を設定する", new_user_achievement_path(@user) %></div>
+            <div class="achievement_link"><%= link_to "実績を設定する", new_user_achievement_path(@user) %></div>
           <% end %>
         <% end %>
       </div>
@@ -63,6 +63,30 @@
         <% end %>
       </div>
       <div class="profile-section">
+        <h3 class="profile-headline">取引待ちの依頼</h3>
+        <% if @commissions_waiting.present? %>
+          <ul class="profile-commission-list">
+            <% @commissions_waiting.each do |commission| %>
+              <li><%= link_to commission.title, commission_path(commission), class: "dealing-link" %></li>
+            <% end %>
+          </ul>
+        <% else %>
+          <div>取引待ちの依頼はありません。</div>
+        <% end %>
+      </div>
+      <div class="profile-section">
+        <h3 class="profile-headline">不成立となった依頼</h3>
+        <% if @commissions_unsuccessful.present? %>
+          <ul class="profile-commission-list">
+            <% @commissions_unsuccessful.each do |commission| %>
+              <li><%= link_to commission.title, commission_path(commission), class: "dealing-link" %></li>
+            <% end %>
+          </ul>
+        <% else %>
+          <div>不成立となった依頼はありません。</div>
+        <% end %>
+      </div>
+      <div class="profile-section">
         <h3 class="profile-headline">個人情報</h3>
         <div class="user-info-item">Eメール : <%= @user.email %></div>
         <div class="user-info-item">名前 : <%= @user.name %></div>
@@ -78,6 +102,7 @@
         <div class="user-info-item">口座番号 : <%= @user.account_number %></div>
         <div class="user-info-item">口座名義 : <%= @user.account_holder %></div>
       </div>
+      <%= link_to "ユーザ情報を編集する", edit_user_path(@user) %>
     <% end %>
   </div>
 </div>
