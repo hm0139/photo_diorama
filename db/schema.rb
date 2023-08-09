@@ -59,7 +59,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_03_032750) do
     t.index ["user_id"], name: "index_chats_on_user_id"
   end
 
-  create_table "commissions", charset: "utf8mb4", force: :cascade do |t|
+  create_table "commissions", charset: "utf8", force: :cascade do |t|
     t.string "title", null: false
     t.text "description", null: false
     t.date "limit_date", null: false
@@ -83,7 +83,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_03_032750) do
     t.index ["user_id"], name: "index_dealings_on_user_id"
   end
 
-  create_table "notifications", charset: "utf8mb4", force: :cascade do |t|
+  create_table "notifications", charset: "utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "commission_id", null: false
     t.datetime "created_at", null: false
@@ -92,7 +92,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_03_032750) do
     t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
-  create_table "users", charset: "utf8mb4", force: :cascade do |t|
+  create_table "users", charset: "utf8", force: :cascade do |t|
     t.string "user_name", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -114,6 +114,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_03_032750) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "kind", default: 0, null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "achievements", "users"
