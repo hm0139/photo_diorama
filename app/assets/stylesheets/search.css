@@ -1,0 +1,47 @@
+/* 検索フォーム */
+.search-input-item{
+  margin: 10px 0;
+}
+
+.request-search{
+  display: flex;
+  justify-content: center;
+}
+
+.request-search-form{
+  padding: 10px;
+}
+
+.form-upper{
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.search-input{
+  width: 100%;
+  margin-right: 10px;
+  padding: 5px 10px;
+  font-size: 16px;
+}
+
+.search-button{
+  width: 100px;
+}
+
+.input-number{
+  width: 60px;
+  padding: 5px 10px;
+  font-size: 16px;
+}
+
+.search-button-container{
+  display: flex;
+  justify-content: center;
+}
+
+/* 検索結果ページ */
+.result-count{
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+}
