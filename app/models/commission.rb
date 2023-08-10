@@ -3,6 +3,8 @@ class Commission < ApplicationRecord
   has_one :notification
   has_one :dealing
 
+  DEADLINE_DAYS = 7
+
   with_options presence: true do
     validates :title
     validates :description
@@ -38,7 +40,7 @@ class Commission < ApplicationRecord
   private
   def date_before_start
     return if limit_date.blank?
-    errors.add(:limit_date, "は一週間以上先のものを選択してください") if limit_date < Date.today + 7
+    errors.add(:limit_date, "は一週間以上先のものを選択してください") if limit_date < Date.today + DEADLINE_DAYS
   end
 
   enum status:{undealt: 0, dealing: 1, finished: 2, unsuccessful: 3}

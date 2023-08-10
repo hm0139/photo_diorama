@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "commissions#index"
-  resources :commissions, only:[:index, :new, :create, :show] do
+  resources :commissions, only:[:index, :new, :create, :show, :destroy] do
     member do
       get "select"
       get "selected_confirmation"
       patch "direct"
       get "unsuccessful"
+      get "delete_confirmation"
     end
     collection do
       get "search"
