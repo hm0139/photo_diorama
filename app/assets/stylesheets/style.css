@@ -10,6 +10,10 @@ body{
   font-family: -apple-system, BlinkMacSystemFont;
 }
 
+.site-main-container{
+  min-height: 80vh;
+}
+
 .sub-title{
   text-align: center;
 }

@@ -15,7 +15,7 @@
 }
 
 .chat-form-container{
-  background-color: lightcyan;
+  background-color: wheat;
   padding: 10px;
   width: 100vw;
 }
@@ -131,7 +131,7 @@
 }
 
 .form-images{
-  background-color: lightblue;
+  background-color: #add8e6;
   color: white;
   padding: 5px 20px;
   margin: 5px 10px;
@@ -146,7 +146,7 @@
 #previews{
   display: flex;
   align-items: center;
-  background-color: #f0f0f0;
+  background-color: #e1d1c5;
   padding: 5px 2px;
   overflow: scroll;
 }

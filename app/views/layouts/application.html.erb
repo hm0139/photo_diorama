@@ -39,7 +39,9 @@
     <% flash.each do |message_type, message| %>
       <div class="flash-messages"><%= message %></div>
     <% end %>
-    <%= yield %>
+    <div class="site-main-container">
+      <%= yield %>
+    </div>
     <footer class="site-footer">
       Photo Diorama - 2023
     </footer>
