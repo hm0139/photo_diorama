@@ -85,3 +85,4 @@ gem "gimei"
 gem "faker"
 gem "rails-i18n"
 gem "gon"
+gem "whenever", require: false
