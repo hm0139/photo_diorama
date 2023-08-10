@@ -58,3 +58,8 @@
   background-color: lightgray;
   color: white;
 }
+
+.deadline-has-passed{
+  text-align: center;
+  margin: 10px 0;
+}

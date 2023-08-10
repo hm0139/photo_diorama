@@ -80,6 +80,11 @@
   font-size: 20px;
 }
 
+.days-left-num{
+  color: red;
+  font-size: 20px;
+}
+
 .creators-link{
   display: flex;
   justify-content: center;

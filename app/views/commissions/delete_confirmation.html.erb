@@ -1,0 +1,11 @@
+<h2 class="sub-title">依頼の削除</h2>
+<div class="confirmation">以下の依頼を削除しますか？</div>
+
+<div class="page-description">削除した依頼は元に戻せません。</div>
+
+<%= render partial: "commissions/commission", locals: {commission: @commission} %>
+
+<div class="select-button">
+  <%= link_to "はい", commission_path(@commission), data:{turbo_method: :delete}, class: "button-orange" %>
+  <%= link_to "いいえ", commission_path(@commission), class: "button-gray" %>
+</div>
