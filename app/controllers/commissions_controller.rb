@@ -1,6 +1,6 @@
 class CommissionsController < ApplicationController
   before_action :direct_commission, only: [:show]
-  before_action :redirect_root, only:[:select, :selected_confirmation, :direct]
+  before_action :redirect_root, only:[:select, :selected_confirmation, :direct, :delete_confirmation, :destroy]
 
   def index
     @commissions = Commission.where(directly: false).where(status: Commission.statuses[:undealt]).includes(:user)
@@ -58,6 +58,9 @@ class CommissionsController < ApplicationController
   end
 
   def destroy
+    commission = Commission.find(params[:id])
+    commission.destroy
+    redirect_to root_path, flash: {deleted: "依頼を削除しました"}
   end
 
   private
