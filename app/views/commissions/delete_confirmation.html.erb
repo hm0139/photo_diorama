@@ -1,11 +1,20 @@
 <h2 class="sub-title">依頼の削除</h2>
-<div class="confirmation">以下の依頼を削除しますか？</div>
 
-<div class="page-description">削除した依頼は元に戻せません。</div>
-
+<% if @commission.undealt? || @commission.unsuccessful? %>
+  <div class="confirmation">以下の依頼を削除しますか？</div>
+  <div class="page-description">削除した依頼は元に戻せません。</div>
+<% else %>
+  <div class="confirmation">以下の依頼は現在取引中か終了している為、削除ができません。</div>
+<% end %>
 <%= render partial: "commissions/commission", locals: {commission: @commission} %>
 
-<div class="select-button">
-  <%= link_to "はい", commission_path(@commission), data:{turbo_method: :delete}, class: "button-orange" %>
-  <%= link_to "いいえ", commission_path(@commission), class: "button-gray" %>
-</div>
+<% if @commission.undealt? || @commission.unsuccessful? %>
+  <div class="select-button">
+    <%= link_to "はい", commission_path(@commission), data:{turbo_method: :delete}, class: "button-orange" %>
+    <%= link_to "いいえ", commission_path(@commission), class: "button-gray" %>
+  </div>
+<% else %>
+  <div class="user-button-center">
+    <%= link_to "戻る", :back, class: "button-gray" %>
+  </div>
+<% end %>
