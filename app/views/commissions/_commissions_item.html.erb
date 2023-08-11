@@ -1,3 +1,4 @@
+<% days_left = (commission.limit_date - Date.today).to_i %>
 <div class="request-item">
   <div class="request-item-left">
     <div class="request-item-upper">
@@ -15,5 +16,10 @@
     <div class="reqard">
       <span class="reward-item-name">報酬</span> : <span class="reward-price"><%= commission.reward %>円</span>
     </div>
+    <% if days_left >= Commission::DEADLINE_DAYS %>
+      <div class="days-left">
+        残り日数 : <span class="days-left-num"><%= days_left %>日</span>
+      </div>
+    <% end %>
   </div>
 </div>

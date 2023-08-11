@@ -1,3 +1,4 @@
+<% days_left = (commission.limit_date - Date.today).to_i %>
 <div class="commission-container">
   <div class="commission-content">
     <div class="commission-header">
@@ -17,13 +18,29 @@
     <div class="limit-date">
       <span class="information-item">期限日 : </span><span class="important"><%= commission.limit_date %></span>
     </div>
-    <% if controller.controller_name == "commissions" && controller.action_name == "show" && user_signed_in? && commission.user_id != current_user.id && current_user.kind == 1 %>
-      <div class="commission-reception">
-        <%= link_to "この依頼を受け付ける", new_commission_dealing_path(commission), class: "agreement" %>
-        <% if commission.directly %>
-          <%= link_to "断る", unsuccessful_commission_path(commission), class: "refuse" %>
-        <% end %>
+    <% if days_left >= Commission::DEADLINE_DAYS %>
+      <div class="days_left">
+        <span class="information-item">残り日数 : </span><span class="important"><%= days_left %>日</span>
       </div>
+    <% end %>
+    <% if controller.controller_name == "commissions" && controller.action_name == "show" %>
+      <% if days_left >= Commission::DEADLINE_DAYS %>
+        <% if user_signed_in? && commission.user_id != current_user.id && current_user.kind == 1 %>
+          <div class="commission-reception">
+            <%= link_to "この依頼を受け付ける", new_commission_dealing_path(commission), class: "agreement" %>
+            <% if commission.directly %>
+              <%= link_to "断る", unsuccessful_commission_path(commission), class: "refuse" %>
+            <% end %>
+          </div>
+        <% end %>
+      <% else %>
+        <div class="deadline-has-passed">この依頼は期限日までが<%= Commission::DEADLINE_DAYS %>日を下回ったか、期限が過ぎてしまったので受けられません</diV>
+      <% end %>
+      <% if user_signed_in? && current_user.id == commission.user_id %>
+        <div class="user-button-center">
+          <%= link_to "削除する", delete_confirmation_commission_path(@commission), class: "button-orange" %>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>

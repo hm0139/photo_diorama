@@ -3,7 +3,6 @@ class DealingsController < ApplicationController
   before_action :show_redirect_root, only: [:show, :destroy]
 
   def new
-    @commission = Commission.find(params[:commission_id])
   end
 
   def create
@@ -33,7 +32,8 @@ class DealingsController < ApplicationController
 
   private
   def redirect_root
-    if !user_signed_in? || current_user.kind == 0
+    @commission = Commission.find(params[:commission_id])
+    if !user_signed_in? || current_user.kind == 0 || (@commission.limit_date - Date.today) < Commission::DEADLINE_DAYS
       redirect_to root_path
     end
   end
