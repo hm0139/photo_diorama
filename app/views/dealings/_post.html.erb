@@ -3,7 +3,7 @@
     <div class="partner-user-name"><%= chat.user.user_name %></div>
   <% end %>
   <div class="post-container">
-    <div class="post-content <%= current_user.id == chat.user_id ? "myself-bg-color" : "partner-bg-color" %>">
+    <div class="<%= current_user.id == chat.user_id ? "balloon-right" : "balloon-left" %>">
       <pre><%= chat.post_text %></pre>
       <% if chat.images.attached? %>
         <% chat.images.each do |image| %>

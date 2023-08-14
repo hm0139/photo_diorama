@@ -55,29 +55,65 @@
   color: gray
 }
 
-.post-content{
-  border: 1px solid gray;
+.balloon-right {
   border-radius: 10px;
-  padding: 10px;
-  margin: 15px 0 5px;
-  font-size: 15px;
+  position: relative;
+  display: inline-block;
+  margin: 1.5em 15px 1.5em 0;
+  padding: 7px 10px;
+  min-width: 120px;
+  max-width: 100%;
+  background-color: lightgreen;
+  color: #555;
+  font-size: 16px;
 }
 
-.post-content > pre{
+.balloon-right:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  margin-top: -10px;
+  border: 10px solid transparent;
+  border-left: 10px solid lightgreen;
+}
+
+.balloon-right pre {
   margin: 0;
+  padding: 0;
+}
+
+.balloon-left {
+  border-radius: 10px;
+  position: relative;
+  display: inline-block;
+  margin: 1.5em 0 1.5em 15px;
+  padding: 7px 10px;
+  min-width: 120px;
+  max-width: 100%;
+  background-color: lightskyblue;
+  color: #555;
+  font-size: 16px;
+}
+
+.balloon-left:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -20px;
+  margin-top: -10px;
+  border: 10px solid transparent;
+  border-right: 10px solid lightskyblue;
+}
+
+.balloon-left pre {
+  margin: 0;
+  padding: 0;
 }
 
 .chat-image{
   width: 200px;
   height: auto;
-}
-
-.myself-bg-color{
-  background-color: lightgreen;
-}
-
-.partner-bg-color{
-  background-color: lightskyblue;
 }
 
 .post-date{
