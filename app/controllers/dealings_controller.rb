@@ -26,7 +26,7 @@ class DealingsController < ApplicationController
   def destroy
     commission = Commission.find(params[:commission_id])
     #期限日が7以内だった場合に、バリデーションに引っかかってしまうので以下のメソッドを使用してバリデーションを無視
-    commission.update_attribute(:status, Commission.statuses[:finished])
+    commission.update_attribute(:status, Commission.statuses[:waiting_evaluation])
     redirect_to commission_dealing_path(commission, commission.dealing)
   end
 
