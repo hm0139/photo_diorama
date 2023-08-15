@@ -9,6 +9,7 @@ class EvaluationsController < ApplicationController
     @evaluation = Evaluation.new(evaluation_params)
     if @evaluation.save
       @commission.update_attribute(:status, Commission.statuses[:finished])
+      Evaluation.update_rank(@evaluation.target_user_id)
       redirect_to user_path(current_user)
     else
       render :new, status: :unprocessable_entity

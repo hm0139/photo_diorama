@@ -86,6 +86,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_14_075347) do
   create_table "evaluations", charset: "utf8", force: :cascade do |t|
     t.integer "rank", null: false
     t.text "comment", null: false
+    t.boolean "reflect", default: false, null: false
     t.bigint "commission_id", null: false
     t.bigint "target_user_id", null: false
     t.bigint "source_user_id", null: false
