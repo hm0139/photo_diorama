@@ -1,7 +1,7 @@
 class EvaluationsController < ApplicationController
   def new
     @commission = Commission.find(params[:commission_id])
-    @evaluations = Evaluation.new
+    @evaluation = Evaluation.new
   end
 
   def create

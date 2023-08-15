@@ -1,1 +1,7 @@
-<h2 class="subtitle">ユーザの評価</h2>
+<h2 class="sub-title">ユーザの評価</h2>
+
+<%= form_with model: [@commission,@evaluation], local: true do |f| %>
+  <%= f.select(:rank, {"1" => 1, "2" => 2, "3" => 3, "4" => 4, "5" => 5}, {}, {class: "select-box"}) %><br>
+  <%= f.text_area :comment, class: "input-text" %><br>
+  <%= f.submit "送信", class: "button-orange" %>
+<% end %>

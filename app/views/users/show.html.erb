@@ -55,7 +55,10 @@
         <% if @commissions_finished.present? %>
           <ul class="profile-commission-list">
           <% @commissions_finished.each do |commission| %>
-            <li><%= link_to commission.title, commission_dealing_path(commission,commission.dealing), class: "dealing-link" %></li>
+            <li>
+              <%= link_to commission.title, commission_dealing_path(commission,commission.dealing), class: "dealing-link" %>
+              <%= link_to "ユーザを評価する", new_commission_evaluation_path(commission) %>
+            </li>
           <% end %>
           </ul>
         <% else %>
