@@ -55,14 +55,26 @@
         <% if @commissions_finished.present? %>
           <ul class="profile-commission-list">
           <% @commissions_finished.each do |commission| %>
-            <li>
-              <%= link_to commission.title, commission_dealing_path(commission,commission.dealing), class: "dealing-link" %>
-              <%= link_to "ユーザを評価する", new_commission_evaluation_path(commission) %>
-            </li>
+            <li><%= link_to commission.title, commission_dealing_path(commission,commission.dealing), class: "dealing-link" %></li>
           <% end %>
           </ul>
         <% else %>
           <div>完了した取引はありません。</div>
+        <% end %>
+      </div>
+      <div class="profile-section">
+        <h3 class="profile-headline">評価待ちの依頼</h3>
+        <% if @commissions_waiting_evaluation.present? %>
+          <ul class="profile-commission-list">
+            <% @commissions_waiting_evaluation.each do |commission| %>
+              <li class="profile-finished-item">
+                <%= link_to commission.title, commission_dealing_path(commission,commission.dealing), class: "dealing-link" %>
+                <%= link_to "ユーザを評価する", new_commission_evaluation_path(commission), class: "dealing-link" %>
+              </li>
+            <% end %>
+          </ul>
+        <% else %>
+          <div>評価待ちの依頼はありません。</div>
         <% end %>
       </div>
       <div class="profile-section">
