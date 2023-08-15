@@ -1,0 +1,50 @@
+.evaluation-form-container{
+  display: flex;
+  justify-content: center;
+}
+
+.evaluations-input-form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80vw;
+}
+
+.stars-container{
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.container {
+  display:flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.star {
+  clip-path: polygon(50% 5%, 61% 40%, 98% 40%, 68% 62%, 79% 96%, 50% 75%, 21% 96%, 32% 62%, 2% 40%, 39% 40%);
+}
+
+.star-bg-off{
+  background-color: gray;
+}
+
+.star-bg-on{
+  background-color: #EF6C00;
+}
+
+@media screen and (min-width: 429px) {
+  .star{
+    width: 70px;
+    height: 70px;
+  }
+}
+
+@media screen and (max-width: 428px) {
+  .star{
+    width: 40px;
+    height: 40px;
+  }
+}
