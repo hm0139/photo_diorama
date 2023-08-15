@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_03_032750) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_14_075347) do
   create_table "achievements", charset: "utf8", force: :cascade do |t|
     t.text "achievement_text"
     t.integer "commission_count", default: 0, null: false
@@ -83,6 +83,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_03_032750) do
     t.index ["user_id"], name: "index_dealings_on_user_id"
   end
 
+  create_table "evaluations", charset: "utf8", force: :cascade do |t|
+    t.integer "rank", null: false
+    t.text "comment", null: false
+    t.bigint "commission_id", null: false
+    t.bigint "target_user_id", null: false
+    t.bigint "source_user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["commission_id"], name: "index_evaluations_on_commission_id"
+    t.index ["source_user_id"], name: "index_evaluations_on_source_user_id"
+    t.index ["target_user_id"], name: "index_evaluations_on_target_user_id"
+  end
+
   create_table "notifications", charset: "utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "commission_id", null: false
@@ -126,6 +139,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_03_032750) do
   add_foreign_key "commissions", "users"
   add_foreign_key "dealings", "commissions"
   add_foreign_key "dealings", "users"
+  add_foreign_key "evaluations", "commissions"
+  add_foreign_key "evaluations", "users", column: "source_user_id"
+  add_foreign_key "evaluations", "users", column: "target_user_id"
   add_foreign_key "notifications", "commissions"
   add_foreign_key "notifications", "users"
 end
