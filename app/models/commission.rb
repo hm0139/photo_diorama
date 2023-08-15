@@ -2,6 +2,7 @@ class Commission < ApplicationRecord
   belongs_to :user
   has_one :notification, dependent: :destroy
   has_one :dealing
+  has_many :evaluations
 
   DEADLINE_DAYS = 7
 

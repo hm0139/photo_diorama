@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :dealings
   has_one :achievement
   has_many :chats
+  has_many :evaluations
 
   with_options presence: true do
     validates :user_name
