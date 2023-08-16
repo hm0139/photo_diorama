@@ -8,7 +8,7 @@ class EvaluationsController < ApplicationController
   def create
     @evaluation = Evaluation.new(evaluation_params)
     if @evaluation.save
-      partner_id = current_user.id == @commission.user_id ? @commission.contractor_id : @commission.user_id
+      partner_id = @commission.partner_id(current_user.id)
 
       if Evaluation.existence_evaluation? partner_id, @commission.id
         @commission.update_attribute(:status, Commission.statuses[:finished])
@@ -22,7 +22,7 @@ class EvaluationsController < ApplicationController
 
   private
   def evaluation_params
-    target_user_id = current_user.id == @commission.user_id ? @commission.contractor_id : @commission.user_id
+    target_user_id = @commission.partner_id(current_user.id)
     params.require(:evaluation).permit(:rank, :comment).merge(commission_id: @commission.id, source_user_id: current_user.id, target_user_id: target_user_id)
   end
 

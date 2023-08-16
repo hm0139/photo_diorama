@@ -38,6 +38,10 @@ class Commission < ApplicationRecord
     return result
   end
 
+  def partner_id(user_id)
+    return user_id == self.user_id ? self.contractor_id : self.user_id
+  end
+
   private
   def date_before_start
     return if limit_date.blank?
