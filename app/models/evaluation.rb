@@ -26,6 +26,10 @@ class Evaluation < ApplicationRecord
     end
   end
 
+  def self.existence_evaluation? user_id, commission_id
+    return Evaluation.where(source_user_id: user_id).where(commission_id: commission_id).present?
+  end
+
   private
   def self.rank_transfer dir, current_rank
     ranks = ["D", "C", "B", "A", "S"]
