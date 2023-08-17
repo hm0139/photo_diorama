@@ -15,7 +15,7 @@ class EvaluationsController < ApplicationController
         @commission.update_attribute(:status, Commission.statuses[:finished])
         Evaluation.update_rank(@evaluation.target_user_id)
       end
-      redirect_to user_path(current_user)
+      redirect_to user_path(current_user) ,flash: {completion: "評価が完了しました"}
     else
       render :new, status: :unprocessable_entity
     end
