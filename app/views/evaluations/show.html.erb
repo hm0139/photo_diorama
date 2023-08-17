@@ -2,6 +2,8 @@
 
 <div class="evaluation-container">
   <div class="evaluation-box">
+    <% source_user = User.find(@evaluation.source_user_id) %>
+    <h3 class="evaluation-section-title"><%= source_user.user_name %>さんからの評価</h3>
     <div class="evaluation-rank">
       <div class="stars-container">
         <% 5.times do |n| %>
@@ -11,7 +13,7 @@
         <% end %>
       </div>
     </div>
-    <h3 class="evaluation-comment-title">相手からの評価コメント</h3>
+    <h3 class="evaluation-section-title">相手からの評価コメント</h3>
     <div class="evaluation-comment-container">
       <% if @evaluation.comment != "" %>
         <div class="evaluation-comment"><%= html_safe_newline(@evaluation.comment) %></div>
