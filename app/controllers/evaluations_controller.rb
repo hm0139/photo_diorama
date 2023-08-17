@@ -44,7 +44,7 @@ class EvaluationsController < ApplicationController
     return redirect_to root_path unless user_signed_in?
 
     @commission = Commission.find(params[:commission_id])
-    unless @commission.finished? && Evaluation.existence_evaluation?(@commission.partner_id(current_user.id), @commission.id) && (current_user.id == @commission.user || current_user.id == @commission.contractor_id)
+    unless @commission.finished? && Evaluation.existence_evaluation?(@commission.partner_id(current_user.id), @commission.id) && (current_user.id == @commission.user_id || current_user.id == @commission.contractor_id)
       redirect_to user_path(current_user)
     end
   end
