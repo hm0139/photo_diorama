@@ -55,7 +55,11 @@
         <% if @commissions_finished.present? %>
           <ul class="profile-commission-list">
           <% @commissions_finished.each do |commission| %>
-            <li><%= link_to commission.title, commission_dealing_path(commission,commission.dealing), class: "dealing-link" %></li>
+            <li class="profile-flex-item">
+              <%= link_to commission.title, commission_dealing_path(commission,commission.dealing), class: "dealing-link dealing-link-adjustment" %>
+              <% evaluation = commission.evaluations.find_by(target_user_id: current_user.id) %>
+              <%= link_to "相手からの評価を見る", commission_evaluation_path(commission, evaluation), class: "dealing-link evaluation-link" %>
+            </li>
           <% end %>
           </ul>
         <% else %>
@@ -67,7 +71,7 @@
         <% if @commissions_waiting_evaluation.present? %>
           <ul class="profile-commission-list">
             <% @commissions_waiting_evaluation.each do |commission| %>
-              <li class="profile-finished-item">
+              <li class="profile-flex-item">
                 <%= link_to commission.title, commission_dealing_path(commission,commission.dealing), class: "dealing-link dealing-link-adjustment" %>
                 <% if !Evaluation.existence_evaluation?(current_user.id, commission.id) %>
                   <%= link_to "ユーザを評価する", new_commission_evaluation_path(commission), class: "dealing-link evaluation-link" %>

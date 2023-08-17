@@ -1,0 +1,10 @@
+<h2 class="sub-title">相手からの評価</h2>
+
+<div>
+  <div><%= @evaluation.rank %></div>
+  <% if @evaluation.comment != "" %>
+    <div><%= @evaluation.comment %></div>
+  <% else %>
+    <div>コメントはありません。</div>
+  <% end %>
+</div>

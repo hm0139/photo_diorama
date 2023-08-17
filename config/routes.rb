@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     end
     resources :dealings, only:[:new, :create, :show, :destroy]
     resources :chats, only:[:create]
-    resources :evaluations, only:[:new ,:create]
+    resources :evaluations, only:[:new ,:create, :show]
   end
 
   resources :notifications, only:[:index, :destroy]
