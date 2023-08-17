@@ -5,7 +5,7 @@ class Evaluation < ApplicationRecord
   RANK_THRESHOLD = 10
   RANK_BOUNDARY = 3
 
-  validates :rank, presence: true, numericality: {other_than: 0}
+  validates :rank, presence: true, numericality: {in: 1..5}
 
   def self.update_rank user_id
     user = User.find(user_id)
