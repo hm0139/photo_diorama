@@ -1,6 +1,6 @@
 function inputEvaluation(){
-  const starContainer = document.querySelector(".stars-container");
-  if(!starContainer)return;
+  const evaluationForm = document.querySelector(".evaluations-input-form");
+  if(!evaluationForm)return;
 
   const rankNum = document.getElementById("rank-num");
   const stars = document.getElementsByClassName("star");

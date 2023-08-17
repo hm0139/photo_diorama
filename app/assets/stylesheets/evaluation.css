@@ -48,3 +48,9 @@
     height: 40px;
   }
 }
+
+.show-evaluation-comment-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

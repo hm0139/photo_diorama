@@ -10,7 +10,8 @@
         </div>
       <% end %>
     </div>
-    <div class="input-item">
+    <div class="input-item show-evaluation-comment-container">
+      <div class="form-label-caption"><%= f.label :comment, "評価コメント（任意）" %></div>
       <%= f.text_area :comment, class: "input-text" %>
     </div>
     <%= f.hidden_field :rank, value: "0", id: "rank-num" %>
