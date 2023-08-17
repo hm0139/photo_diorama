@@ -68,11 +68,11 @@
           <ul class="profile-commission-list">
             <% @commissions_waiting_evaluation.each do |commission| %>
               <li class="profile-finished-item">
-                <%= link_to commission.title, commission_dealing_path(commission,commission.dealing), class: "dealing-link" %>
+                <%= link_to commission.title, commission_dealing_path(commission,commission.dealing), class: "dealing-link dealing-link-adjustment" %>
                 <% if !Evaluation.existence_evaluation?(current_user.id, commission.id) %>
-                  <%= link_to "ユーザを評価する", new_commission_evaluation_path(commission), class: "dealing-link" %>
+                  <%= link_to "ユーザを評価する", new_commission_evaluation_path(commission), class: "dealing-link evaluation-link" %>
                 <% else %>
-                  <div>相手の評価待ち</div>
+                  <div class="waiting-evaluation-message">相手の評価待ち</div>
                 <% end %>
               </li>
             <% end %>
