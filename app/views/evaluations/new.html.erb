@@ -1,0 +1,20 @@
+<h2 class="sub-title">ユーザの評価</h2>
+
+<div class="evaluation-form-container">
+  <%= form_with model: [@commission,@evaluation], local: true, class: "evaluations-input-form" do |f| %>
+    <%= render 'shared/error_messages', model: f.object %>
+    <div class="stars-container">
+      <% 5.times do %>
+        <div class="container">
+          <div class="star star-bg-off"></div>
+        </div>
+      <% end %>
+    </div>
+    <div class="input-item show-evaluation-comment-container">
+      <div class="form-label-caption"><%= f.label :comment, "評価コメント（任意）" %></div>
+      <%= f.text_area :comment, class: "input-text" %>
+    </div>
+    <%= f.hidden_field :rank, value: "0", id: "rank-num" %>
+    <%= f.submit "送信", class: "button-orange", id: "evaluation-submit" %>
+  <% end %>
+</div>

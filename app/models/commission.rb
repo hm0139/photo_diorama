@@ -2,6 +2,7 @@ class Commission < ApplicationRecord
   belongs_to :user
   has_one :notification, dependent: :destroy
   has_one :dealing
+  has_many :evaluations
 
   DEADLINE_DAYS = 7
 
@@ -37,11 +38,15 @@ class Commission < ApplicationRecord
     return result
   end
 
+  def partner_id(user_id)
+    return user_id == self.user_id ? self.contractor_id : self.user_id
+  end
+
   private
   def date_before_start
     return if limit_date.blank?
     errors.add(:limit_date, "は一週間以上先のものを選択してください") if limit_date < Date.today + DEADLINE_DAYS
   end
 
-  enum status:{undealt: 0, dealing: 1, finished: 2, unsuccessful: 3}
+  enum status:{undealt: 0, dealing: 1, finished: 2, unsuccessful: 3, waiting_evaluation: 4}
 end

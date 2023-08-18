@@ -1,0 +1,29 @@
+<h2 class="sub-title">相手からの評価</h2>
+
+<div class="evaluation-container">
+  <div class="evaluation-box">
+    <% source_user = User.find(@evaluation.source_user_id) %>
+    <h3 class="evaluation-section-title"><%= source_user.user_name %>さんからの評価</h3>
+    <div class="evaluation-rank">
+      <div class="stars-container">
+        <% 5.times do |n| %>
+          <div class="container">
+            <div class="star <%= n < @evaluation.rank ? "star-bg-on" : "star-bg-off" %>"></div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <h3 class="evaluation-section-title">相手からの評価コメント</h3>
+    <div class="evaluation-comment-container">
+      <% if @evaluation.comment != "" %>
+        <div class="evaluation-comment"><%= html_safe_newline(@evaluation.comment) %></div>
+      <% else %>
+        <div class="evaluation-nothing-comment">コメントはありません。</div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="user-button-center">
+  <%= link_to "戻る", user_path(current_user), class: "button-gray" %>
+</div>

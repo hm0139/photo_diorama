@@ -1,10 +1,10 @@
 <h2 class="sub-title">取引ページ</h2>
-<% if @commission.finished? %>
-  <div class="finished-message">以下の取引は終了しました</div>
-<% else %>
+<% if @commission.dealing? %>
   <div class="dealing-finish">
     <div class="button-orange" id="finish-button">取引完了</div>
   </div>
+<% else %>
+  <div class="finished-message">以下の取引は終了しました</div>
 <% end %>
 <div class="dealing-title"><%= @commission.title %></div>
 <div class="chat-main">

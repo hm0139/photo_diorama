@@ -9,6 +9,7 @@ class UsersController < ApplicationController
       @commissions_finished = @commissions.where(status: Commission.statuses[:finished])
       @commissions_waiting = @commissions.where(status: Commission.statuses[:undealt])
       @commissions_unsuccessful = @commissions.where(status: Commission.statuses[:unsuccessful])
+      @commissions_waiting_evaluation = @commissions.where(status: Commission.statuses[:waiting_evaluation])
     end
   end
 
