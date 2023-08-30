@@ -3,5 +3,5 @@
 <%= render partial: "commission", locals: {commission: @commission} %>
 
 <div class="user-button-center">
-  <%= link_to "戻る", session[:previous_url], class: "button-gray" %>
+  <%= link_to session[:return_to_page], session[:previous_url], class: "button-gray" %>
 </div>

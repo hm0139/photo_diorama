@@ -1,6 +1,7 @@
 class NotificationsController < ApplicationController
   def index
     @commissions = Commission.where(directly: true).where(contractor_id: current_user.id).where(status: Commission.statuses[:undealt])
+    session[:return_to_page] = "依頼一覧に戻る"
     session[:previous_url] = request.url
   end
 

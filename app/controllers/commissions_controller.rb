@@ -4,6 +4,7 @@ class CommissionsController < ApplicationController
 
   def index
     @commissions = Commission.where(directly: false).where(status: Commission.statuses[:undealt]).includes(:user)
+    session[:return_to_page] = "トップページに戻る"
     session[:previous_url] = request.url
   end
 
