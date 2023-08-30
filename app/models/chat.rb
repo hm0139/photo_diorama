@@ -8,6 +8,8 @@ class Chat < ApplicationRecord
   validates :post_text, presence: true, unless: :was_attached?
   validate :validate_number_of_files
 
+  after_create_commit { MessageBroadcastJob.perform_later self }
+
   private
   def validate_number_of_files
     return if images.length <= FILE_NUMBER_LIMIT

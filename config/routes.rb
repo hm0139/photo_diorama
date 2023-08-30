@@ -12,7 +12,11 @@ Rails.application.routes.draw do
     collection do
       get "search"
     end
-    resources :dealings, only:[:new, :create, :show, :destroy]
+    resources :dealings, only:[:new, :create, :show, :destroy] do
+      collection do
+        get "make"
+      end
+    end
     resources :chats, only:[:create]
     resources :evaluations, only:[:new ,:create, :show]
   end

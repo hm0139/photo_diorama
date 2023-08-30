@@ -33,7 +33,23 @@ window.addEventListener("turbo:load",() => {
     },
 
     received(data) {
-      return alert(data["message"]);
+      const message = data["message"];
+      const json = JSON.parse(message);
+      const XHR = new XMLHttpRequest();
+      XHR.open("GET", `${location.pathname.replace(/dealings\/\d+/,"dealings/make")}?id=${json.id}`);
+      XHR.send(json);
+      XHR.onload = () => {
+        if(XHR.status != 200){
+          alert(`Error : ${XHR.status} : ${XHR.statusText}`);
+          return null;
+        }
+        chatMain.insertAdjacentHTML("beforeend", XHR.response);
+        const mainRect = chatMain.getBoundingClientRect();
+        const last = chatMain.lastElementChild;
+        const lastRect =last.getBoundingClientRect();
+        const targetTop = lastRect.top - mainRect.top
+        chatMain.scrollBy({top: targetTop, behavior: "smooth"});
+      }
     },
     
     post(message){

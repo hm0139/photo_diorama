@@ -30,6 +30,11 @@ class DealingsController < ApplicationController
     redirect_to commission_dealing_path(commission, commission.dealing)
   end
 
+  def make
+    @chat = Chat.find(params[:id])
+    render partial: "post", locals:{chat: @chat}
+  end
+
   private
   def redirect_root
     @commission = Commission.find(params[:commission_id])
