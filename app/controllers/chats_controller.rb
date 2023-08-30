@@ -4,9 +4,7 @@ class ChatsController < ApplicationController
     @chat = Chat.new(chat_params)
     @chats = Chat.where(dealing_id: @commission.dealing.id).includes(:user).with_attached_images
     if @chat.save
-      #redirect_to commission_dealing_path(@commission,@commission.dealing)
-      #render partial: "dealings/post", locals: {chat: @chat}
-      render partial: "dealings/post", collection: @chats, as: "chat"
+      redirect_to commission_dealing_path(@commission,@commission.dealing)
     else
       render "dealings/show", status: :unprocessable_entity
     end
