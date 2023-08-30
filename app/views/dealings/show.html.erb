@@ -7,7 +7,7 @@
   <div class="finished-message">以下の取引は終了しました</div>
 <% end %>
 <div class="dealing-title"><%= @commission.title %></div>
-<div class="chat-main">
+<div class="chat-main" data-user-id="<%= current_user.id %>" data-room-id="<%= @commission.dealing.id %>">
   <% if @chats.present? %>
     <%= render partial: "dealings/post", collection: @chats, as: "chat" %>
   <% else %>
