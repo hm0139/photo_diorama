@@ -16,7 +16,7 @@
 </div>
 <div class="chat-form-container">
   <% if @commission.dealing? %>
-    <%= form_with model: [@commission, @chat], local: true, class: "chat-form" do |f| %>
+    <%= form_with model: [@commission, @chat], local: true, multipart: true, class: "chat-form" do |f| %>
       <%= render 'shared/error_messages', model: f.object %>
       <%= f.text_area :post_text, class: "chat-text-area" %>
       <label class="form-images">

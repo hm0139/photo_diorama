@@ -33,6 +33,9 @@ window.addEventListener("turbo:load",() => {
     },
 
     received(data) {
+      const emptyMessage = document.querySelector(".chat-empty-message");
+      if(emptyMessage)emptyMessage.remove();
+
       const message = data["message"];
       const json = JSON.parse(message);
       const XHR = new XMLHttpRequest();
@@ -52,15 +55,42 @@ window.addEventListener("turbo:load",() => {
       }
     },
     
-    post(message){
-      return this.perform("post", {message: message});
+    post(messageData){
+      return this.perform("post", {message: messageData["message"]});
     }
   });
 
   const textArea = document.querySelector(".chat-text-area");
+  const imageFile = document.getElementById("image-file");
   chatForm.addEventListener("submit",(e) => {
-    app.post(textArea.value);
+    const csrfToken = document.getElementsByName("csrf-token")[0].content;
+    for(let i = 0;i < imageFile.files.length;i++){
+      const url = imageFile.dataset.directUploadUrl;
+      const XHR = new XMLHttpRequest();
+      XHR.setRequestHeader("csrf-token", csrfToken);
+      XHR.open("POST", url);
+      XHR.send(imageFile.files[i]);
+      XHR.onload = () => {
+        if(XHR.status != 200){
+          alert(`Error : ${XHR.status} : ${XHR.statusText}`);
+          return null;
+        }
+        console.log(XHR.response);
+      }
+    }
+    app.post({message: textArea.value ,image_id: ""});
     textArea.value = "";
+    imageFile.value = "";
+
+    const alreadyPreviews = document.querySelectorAll(".preview");
+    if (alreadyPreviews) {
+      alreadyPreviews.forEach((alreadyPreview) => {
+        alreadyPreview.remove();
+      });
+    };
+
+    const previewList = document.getElementById("previews");
+    previewList.setAttribute("style","display:none");
     e.preventDefault();
   });
 });
